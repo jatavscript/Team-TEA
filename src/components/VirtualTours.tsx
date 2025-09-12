@@ -1,14 +1,21 @@
-import React from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Play, Clock, Globe, Maximize2, Volume2, ArrowRight } from 'lucide-react';
+import {
+  Play,
+  Clock,
+  Globe,
+  Maximize2,
+  Volume2,
+  ArrowRight,
+} from "lucide-react";
 import monasteryInterior from "@/assets/monastery-interior.jpg";
 import virtualTour from "@/assets/virtual-tour.jpg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const VirtualTours = () => {
   return (
     <section className="py-20 bg-gray-50" id="virtual-tours">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1400px] sm:px-12 mx-auto px-6">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-12">
           <div>
@@ -16,31 +23,31 @@ const VirtualTours = () => {
               Featured Virtual Tours
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Experience Sikkim's most iconic monasteries from anywhere in the world
+              Experience Sikkim's most iconic monasteries from anywhere in the
+              world
             </p>
           </div>
           <Link to="/virtual-tours">
-          <Button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center space-x-2" >
-            <span>View All Tours</span>
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+            <Button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center space-x-2">
+              <span>View All Tours</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
           </Link>
         </div>
 
         {/* Tours Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
           {/* Main Featured Tour - Rumtek Monastery */}
           <div className="lg:col-span-2">
             <div className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-video group">
               {/* Background Image */}
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url(${monasteryInterior})` }}
               >
                 <div className="absolute inset-0 bg-black/30"></div>
               </div>
-              
+
               {/* Top Right Controls */}
               <div className="absolute top-4 right-4 flex space-x-2 z-10">
                 <button className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/70 transition-colors">
@@ -67,9 +74,10 @@ const VirtualTours = () => {
                   Rumtek Monastery
                 </h3>
                 <p className="text-white/90 text-lg mb-6 max-w-lg">
-                  The largest monastery in Sikkim, seat of the Karmapa and center of Kagyu tradition
+                  The largest monastery in Sikkim, seat of the Karmapa and
+                  center of Kagyu tradition
                 </p>
-                
+
                 {/* Details Row */}
                 <div className="flex items-center space-x-6 mb-6">
                   <div className="flex items-center space-x-2 text-white/80">
@@ -95,17 +103,16 @@ const VirtualTours = () => {
 
           {/* Side Cards */}
           <div className="lg:col-span-1 space-y-6">
-            
             {/* Pemayangtse Monastery Card */}
             <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group cursor-pointer">
               {/* Background Image */}
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url(${virtualTour})` }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
-              
+
               {/* Content Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
                 <h4 className="text-xl font-bold text-white mb-2">
@@ -126,13 +133,13 @@ const VirtualTours = () => {
             {/* Enchey Monastery Card */}
             <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group cursor-pointer">
               {/* Background Image with Prayer Flags */}
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url(${virtualTour})` }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
-              
+
               {/* Content Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
                 <h4 className="text-xl font-bold text-white mb-2">

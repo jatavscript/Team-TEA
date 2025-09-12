@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Search, Globe, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  Search,
+  Globe,
+  ChevronDown,
+  UserCircle,
+  LogOut,
+} from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import logo from "@/assets/img.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const navItems = [
     { label: "Virtual Tours", href: "/virtual-tours" },
@@ -16,26 +27,18 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md">
-      <div className="mx-auto px-6">
-        <div className="flex items-center justify-around h-16 w-full">
+      <div className="max-w-[1400px] sm:px-12 mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to={"/"}>
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-orange-500 rounded-sm flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white">TEA</div>
-              <div className="text-xs text-gray-300">Sikkim's Digital Heritage Tours</div>
-            </div>
-          </div>
+            <img src={logo} alt="Logo" className="w-10 h-10" />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {/* Navigation Links */}
-            {navItems.map((item) => (
-              item.href.startsWith('/') ? (
+            {navItems.map((item) =>
+              item.href.startsWith("/") ? (
                 <Link
                   key={item.label}
                   to={item.href}
@@ -52,11 +55,11 @@ const Navigation = () => {
                   {item.label}
                 </a>
               )
-            ))}
+            )}
           </div>
 
           {/* Desktop Search and Language */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             {/* Search Bar */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -66,17 +69,40 @@ const Navigation = () => {
                 className="pl-10 pr-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:border-orange-500 w-48"
               />
             </div>
-            
+
             {/* Language Switcher */}
             <div className="flex items-center space-x-2 text-white">
               <Globe className="h-4 w-4" />
-              <select className="bg-transparent border-none outline-none text-white">
-                <option value="en" className="bg-black ">EN</option>
-                <option value="hi" className="bg-black">HI</option>
-                <option value="ne" className="bg-black">NE</option>
+              <select className="bg-gray-900/95 text-white">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+                <option value="ne">NE</option>
               </select>
-              {/* <ChevronDown className="h-4 w-4" /> */}
             </div>
+
+            {user ? (
+              <div className="flex items-center gap-2">
+                <span className="text-white text-sm hidden lg:inline">
+                  {user.displayName || user.email}
+                </span>
+                <Button
+                  onClick={logout}
+                  variant="ghost"
+                  size="sm"
+                  className="text-white hover:text-orange-400 hover:bg-gray-800"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="text-white hover:text-orange-400 transition-colors font-medium flex items-center gap-1"
+              >
+                <UserCircle className="h-6 w-6" />
+                <span className="hidden lg:inline">Login</span>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,8 +128,8 @@ const Navigation = () => {
                 />
               </div>
 
-              {navItems.map((item) => (
-                item.href.startsWith('/') ? (
+              {navItems.map((item) =>
+                item.href.startsWith("/") ? (
                   <Link
                     key={item.label}
                     to={item.href}
@@ -122,18 +148,44 @@ const Navigation = () => {
                     {item.label}
                   </a>
                 )
-              ))}
-              
+              )}
+
               {/* Language Switcher */}
               <div className="flex items-center space-x-2 text-white pt-2">
                 <Globe className="h-4 w-4" />
-                <select className="bg-transparent border-none outline-none text-white">
+                <select className="bg-gray-900/95 text-white">
                   <option value="en">EN</option>
                   <option value="hi">HI</option>
                   <option value="ne">NE</option>
                 </select>
                 <ChevronDown className="h-4 w-4" />
               </div>
+              {user ? (
+                <div className="space-y-2">
+                  <div className="text-white text-sm py-2">
+                    {user.displayName || user.email}
+                  </div>
+                  <Button
+                    onClick={() => {
+                      logout();
+                      setIsOpen(false);
+                    }}
+                    variant="ghost"
+                    className="text-white hover:text-orange-400 hover:bg-gray-800 w-full justify-start"
+                  >
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="block text-white hover:text-orange-400 transition-colors font-medium py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         )}

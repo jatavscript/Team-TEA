@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
   Youtube,
-  ExternalLink
+  ExternalLink,
 } from "lucide-react";
 
 const Footer = () => {
@@ -36,7 +36,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-monastery-burgundy text-prayer-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-[1400px] sm:px-12 mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
@@ -47,8 +47,8 @@ const Footer = () => {
               <span className="text-2xl font-bold">Monastery360</span>
             </div>
             <p className="text-prayer-white/80 mb-6 leading-relaxed">
-              Preserving and sharing Sikkim's sacred heritage through immersive digital technology. 
-              Connecting the world to ancient wisdom.
+              Preserving and sharing Sikkim's sacred heritage through immersive
+              digital technology. Connecting the world to ancient wisdom.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -68,7 +68,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">
+              Quick Links
+            </h3>
             <div className="space-y-3">
               {quickLinks.map((link, index) => (
                 <a
@@ -84,7 +86,9 @@ const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">Resources</h3>
+            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">
+              Resources
+            </h3>
             <div className="space-y-3">
               {resources.map((resource, index) => (
                 <a
@@ -101,21 +105,33 @@ const Footer = () => {
 
           {/* Government & Partners */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">Official Partners</h3>
+            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">
+              Official Partners
+            </h3>
             <div className="space-y-4">
               <div className="bg-prayer-white/10 rounded-lg p-4">
-                <div className="text-sm font-medium mb-2">Government of Sikkim</div>
-                <div className="text-xs text-prayer-white/70">Tourism & Cultural Affairs Department</div>
+                <div className="text-sm font-medium mb-2">
+                  Government of Sikkim
+                </div>
+                <div className="text-xs text-prayer-white/70">
+                  Tourism & Cultural Affairs Department
+                </div>
               </div>
               <div className="bg-prayer-white/10 rounded-lg p-4">
-                <div className="text-sm font-medium mb-2">Smart India Hackathon</div>
-                <div className="text-xs text-prayer-white/70">2025 Cultural Preservation Initiative</div>
+                <div className="text-sm font-medium mb-2">
+                  Smart India Hackathon
+                </div>
+                <div className="text-xs text-prayer-white/70">
+                  2025 Cultural Preservation Initiative
+                </div>
               </div>
             </div>
 
             {/* Social Links */}
             <div className="mt-6">
-              <h4 className="text-sm font-medium mb-3 text-monastery-gold">Follow Us</h4>
+              <h4 className="text-sm font-medium mb-3 text-monastery-gold">
+                Follow Us
+              </h4>
               <div className="flex space-x-3">
                 {socialLinks.map((social, index) => (
                   <a
@@ -136,16 +152,26 @@ const Footer = () => {
         <div className="border-t border-prayer-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-prayer-white/70">
-              © 2025 Monastery360. All rights reserved. Built for Smart India Hackathon 2025.
+              © 2025 Monastery360. All rights reserved. Built for Smart India
+              Hackathon 2025.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-prayer-white/70 hover:text-monastery-gold transition-colors">
+              <a
+                href="#"
+                className="text-prayer-white/70 hover:text-monastery-gold transition-colors"
+              >
                 Privacy Policy
               </a>
-              <a href="#" className="text-prayer-white/70 hover:text-monastery-gold transition-colors">
+              <a
+                href="#"
+                className="text-prayer-white/70 hover:text-monastery-gold transition-colors"
+              >
                 Terms of Service
               </a>
-              <a href="#" className="text-prayer-white/70 hover:text-monastery-gold transition-colors">
+              <a
+                href="#"
+                className="text-prayer-white/70 hover:text-monastery-gold transition-colors"
+              >
                 Cultural Guidelines
               </a>
             </div>

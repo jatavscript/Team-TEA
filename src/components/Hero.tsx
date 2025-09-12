@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, MapPin, Camera, MessageCircle, RotateCcw } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (
@@ -18,10 +19,10 @@ const Hero = () => {
         </video>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
-      
+
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1400px] sm:px-12 mx-auto px-6">
           <div className="max-w-3xl">
             {/* Main Title */}
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-10">
@@ -31,46 +32,69 @@ const Hero = () => {
 
             {/* Description */}
             <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-10">
-              Immerse yourself in 200+ monasteries through cutting-edge 360° virtual tours, 
-              AI-powered guides, and interactive cultural experiences.
+              Immerse yourself in 200+ monasteries through cutting-edge 360°
+              virtual tours, AI-powered guides, and interactive cultural
+              experiences.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium border-2 border-white" onClick={() => { document.getElementById("virtual-tours").scrollIntoView({ behavior: "smooth" }) }}>
+              <Button
+                className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium border-2 border-white"
+                onClick={() => {
+                  document
+                    .getElementById("virtual-tours")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 <Camera className="h-6 w-6" />
                 <span>Start Virtual Tour</span>
               </Button>
-              
-              <Button className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium" onClick={() => { document.getElementById("interactive-map").scrollIntoView({ behavior: "smooth" }) }}>
+
+              <Button
+                className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium"
+                onClick={() => {
+                  document
+                    .getElementById("interactive-map")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 <MapPin className="h-6 w-6" />
-                <span>Explore Map</span>
+                <span>Book Tour</span>
+              </Button>
+
+              <Button
+                className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium"
+                onClick={() => {
+                  document
+                    .getElementById("interactive-map")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                <MapPin className="h-6 w-6" />
+                <span>Play Game</span>
               </Button>
             </div>
 
             {/* Feature Highlights */}
             <div className="flex flex-wrap gap-8">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-orange-500 rounded-sm flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rounded-sm"></div>
-                </div>
-                <span className="text-white text-lg font-medium">200+ Monasteries</span>
+                 <img src={logo} alt="Logo" className="w-10 h-10" />
+                <span className="text-white text-lg font-medium">
+                  200+ Monasteries
+                </span>
               </div>
-              
-              <div className="flex items-center space-x-3">
-                <MessageCircle className="h-8 w-8 text-white" />
-                <span className="text-white text-lg font-medium">5 Languages</span>
-              </div>
-              
+
               <div className="flex items-center space-x-3">
                 <RotateCcw className="h-8 w-8 text-white" />
-                <span className="text-white text-lg font-medium">360° Experience</span>
+                <span className="text-white text-lg font-medium">
+                  360° Experience
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 };
