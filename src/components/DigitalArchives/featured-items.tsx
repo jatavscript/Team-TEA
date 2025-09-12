@@ -82,40 +82,45 @@ const allHeritageItems = [
     description: "This is the Buddha Park of Ravangla (Tathagata Tsal) in Sikkim, featuring a majestic 130-foot statue of Shakyamuni Buddha. Built in the 21st century, it is a serene pilgrimage site with stunning views of the Himalayas.",
     image: "/lovable-uploads/im6.jpg",
     views: "2.0k",
-    likes: "128"
+    likes: "128",
+    category: "Spiritual"
   }
 ];
 
 export function FeaturedItems() {
-  const [visibleItems, setVisibleItems] = useState(4);
-  const [isLoading, setIsLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-  const handleLoadMore = () => {
-    setIsLoading(true);
-    // Simulate loading delay
-    setTimeout(() => {
-      setVisibleItems(prev => Math.min(prev + 4, allHeritageItems.length));
-      setIsLoading(false);
-    }, 800);
-  };
+  const filteredItems = selectedCategory === "all" 
+    ? allHeritageItems 
+    : allHeritageItems.filter(item => item.category === selectedCategory);
 
-  const displayedItems = allHeritageItems.slice(0, visibleItems);
-  const hasMoreItems = visibleItems < allHeritageItems.length;
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="relative py-16 bg-slate-900">
+      {/* Dark theme gradient overlay */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-slate-800/50 to-transparent"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
             Featured Heritage Items
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Discover some of our most significant and popular artifacts from our digital collection.
+          <p className="text-lg text-yellow-300 max-w-3xl mx-auto">
+            Explore our curated collection of significant cultural artifacts, each telling 
+            a unique story of human heritage and artistic achievement.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {displayedItems.map((item) => (
+          {currentItems.map((item) => (
             <Card key={item.id} className="bg-card border-border hover:shadow-heritage transition-all duration-300 group overflow-hidden">
               <div className="aspect-[4/3] bg-secondary/30 relative overflow-hidden">
                 <img 
@@ -139,16 +144,16 @@ export function FeaturedItems() {
               </div>
               <CardContent className="p-4">
                 <div className="flex justify-between items-start mb-2">
-                  <div className="text-xs text-primary font-medium">{item.period}</div>
-                  <div className="text-xs text-muted-foreground">{item.origin}</div>
+                  <div className="text-xs text-black-400 font-medium">{item.period}</div>
+                  <div className="text-xs text-black-300">{item.origin}</div>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2 line-clamp-2">
+                <h3 className="font-semibold text-black-200 mb-2 line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                <p className="text-sm text-black-300 mb-3 line-clamp-2">
                   {item.description}
                 </p>
-                <div className="flex justify-between items-center text-xs text-muted-foreground">
+                <div className="flex justify-between items-center text-xs text-yellow-300">
                   <span>{item.views} views</span>
                   <span>{item.likes} likes</span>
                 </div>
@@ -157,22 +162,28 @@ export function FeaturedItems() {
           ))}
         </div>
 
-        <div className="text-center">
-          {hasMoreItems ? (
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center gap-2 mt-8">
             <Button 
               variant="outline" 
-              size="lg" 
-              onClick={handleLoadMore}
-              disabled={isLoading}
+              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+              disabled={currentPage === 1}
             >
-              {isLoading ? "Loading..." : "View All Items"}
+              Previous
             </Button>
-          ) : (
-            <p className="text-muted-foreground">
-              All items loaded ({allHeritageItems.length} total)
-            </p>
-          )}
-        </div>
+            <span className="flex items-center px-4 text-sm text-yellow-300">
+              Page {currentPage} of {totalPages}
+            </span>
+            <Button 
+              variant="outline" 
+              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
