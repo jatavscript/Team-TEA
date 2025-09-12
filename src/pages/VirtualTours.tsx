@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,6 +42,33 @@ const VirtualTours = () => {
     { number: "1000+", label: "High-Resolution Photos" },
     { number: "4.9★", label: "Average Rating" }
   ];
+
+  // Animated counters for stats
+  const [statDisplays, setStatDisplays] = useState<string[]>(stats.map(() => "0"));
+  useEffect(() => {
+    const startTime = performance.now();
+    const durationMs = 1200;
+    const parseStat = (value: string) => {
+      const match = value.match(/^[0-9]+(?:\.[0-9]+)?/);
+      const numericPart = match ? match[0] : "0";
+      const suffix = value.slice(numericPart.length);
+      const target = parseFloat(numericPart);
+      const decimals = numericPart.includes('.') ? (numericPart.split('.')[1]?.length || 0) : 0;
+      return { target, suffix, decimals };
+    };
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    const parsed = stats.map(s => parseStat(s.number));
+    let rafId = 0;
+    const animate = () => {
+      const now = performance.now();
+      const t = Math.min(1, (now - startTime) / durationMs);
+      const eased = easeOutCubic(t);
+      setStatDisplays(parsed.map(p => (p.target * eased).toFixed(p.decimals) + p.suffix));
+      if (t < 1) rafId = requestAnimationFrame(animate);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
   const monasteries = [
     {
@@ -254,33 +281,19 @@ const VirtualTours = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             Experience Sikkim Monasteries Virtually
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl mb-16 text-white/90 max-w-3xl mx-auto">
             Immerse yourself in sacred spaces through cutting-edge 360° virtual tours, 
             high-definition photography, and expert cultural commentary
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4">
-              <Play className="h-5 w-5 mr-2" />
-              Start Virtual Tour
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-4">
-              <MapPin className="h-5 w-5 mr-2" />
-              Explore Map
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          
+          {/* Counter Section in Hero */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                  {stat.number}
+                <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">
+                  {statDisplays[index]}
                 </div>
-                <div className="text-muted-foreground text-lg">
+                <div className="text-white/80 text-lg">
                   {stat.label}
                 </div>
               </div>
@@ -289,49 +302,9 @@ const VirtualTours = () => {
         </div>
       </section>
 
-      {/* Search & Filter Bar */}
-      <section className="py-8 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search monasteries..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex gap-2">
-              <Select>
-                <SelectTrigger className="w-32">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="Filter" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Types</SelectItem>
-                  <SelectItem value="active">Active Monastery</SelectItem>
-                  <SelectItem value="historic">Historic Site</SelectItem>
-                  <SelectItem value="sacred">Sacred Site</SelectItem>
-                  <SelectItem value="educational">Educational</SelectItem>
-                </SelectContent>
-              </Select>
-              <Select>
-                <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Location" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Locations</SelectItem>
-                  <SelectItem value="east">East Sikkim</SelectItem>
-                  <SelectItem value="west">West Sikkim</SelectItem>
-                  <SelectItem value="south">South Sikkim</SelectItem>
-                  <SelectItem value="gangtok">Gangtok</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Stats Section removed - moved to hero */}
+
+      {/* Search & Filter Bar removed */}
 
       {/* Featured Virtual Tour */}
       <section className="py-20 bg-background">
@@ -412,7 +385,7 @@ const VirtualTours = () => {
       </section>
 
       {/* Explore All Monasteries */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20" style={{ background: 'linear-gradient(356deg,rgba(255, 255, 255, 0.88) 0%,rgba(235, 226, 204, 0.88) 100%)' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Explore All Monasteries</h2>
@@ -502,51 +475,10 @@ const VirtualTours = () => {
         </div>
       </section>
 
-      {/* How Virtual Tours Work */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">How Virtual Tours Work</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              State-of-the-art technology brings Sikkim's monasteries to your screen
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              {workSteps.map((step, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                    {step.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-900">
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('/lovable-uploads/00aafb18-34fd-4b5c-bb8e-12cdf87153de.png')` }}
-              >
-                <div className="absolute inset-0 bg-black/30"></div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Button size="lg" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 border border-white/30">
-                  <Play className="h-6 w-6 mr-2" />
-                  Watch Demo
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Visitor Testimonials */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20" style={{ background: 'linear-gradient(135deg,rgba(217, 221, 182, 0.88) 0%,rgba(255, 255, 255, 0.88) 100%)' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">What Visitors Say</h2>
@@ -582,7 +514,7 @@ const VirtualTours = () => {
       </section>
 
       {/* Share Your Experience */}
-      <section className="py-20 bg-background">
+      <section className="py-20" style={{ background: 'linear-gradient(135deg,rgba(222, 203, 161, 0.88) 0%,rgba(255, 255, 255, 0.88) 100%)' }}>
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Share Your Experience</h2>
@@ -638,97 +570,6 @@ const VirtualTours = () => {
         </div>
       </section>
 
-      {/* Cultural Insights */}
-      <section className="py-20 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Cultural Insights</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Deepen your understanding of Buddhist culture and traditions
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {culturalInsights.map((insight, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <CardContent className="p-0">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
-                    <img 
-                      src={insight.image}
-                      alt={insight.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{insight.title}</h3>
-                    <p className="text-muted-foreground mb-4">{insight.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{insight.readTime}</span>
-                      <Button variant="ghost" size="sm">
-                        Read More
-                        <ChevronRight className="h-3 w-3 ml-1" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Educational Resources */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Educational Resources</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Tools and materials for deeper learning and integration
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {educationalResources.map((resource, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-0">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mx-auto mb-4">
-                    {resource.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{resource.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{resource.description}</p>
-                  <Button variant="outline" size="sm" className="w-full">
-                    {resource.cta}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Subscription */}
-      <section className="py-20 bg-primary text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Stay Connected</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get notified about new virtual tours, cultural insights, and special events
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <Input 
-              placeholder="Enter your email"
-              className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/60"
-            />
-            <Button className="bg-white text-primary hover:bg-white/90">
-              Subscribe
-            </Button>
-          </div>
-          
-          <p className="text-sm text-white/70 mt-4">
-            No spam, unsubscribe at any time
-          </p>
-        </div>
-      </section>
 
       <Footer />
     </div>
