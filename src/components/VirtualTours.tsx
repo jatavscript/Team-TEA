@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Play, Clock, Globe, Maximize2, Volume2, ArrowRight } from 'lucide-react';
 import monasteryInterior from "@/assets/monastery-interior.jpg";
 import virtualTour from "@/assets/virtual-tour.jpg";
+import { Link } from 'react-router-dom';
 
 const VirtualTours = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50" id="virtual-tours">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-12">
@@ -18,11 +19,12 @@ const VirtualTours = () => {
               Experience Sikkim's most iconic monasteries from anywhere in the world
             </p>
           </div>
-          
-          <Button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center space-x-2">
+          <Link to="/virtual-tours">
+          <Button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center space-x-2" >
             <span>View All Tours</span>
             <ArrowRight className="h-4 w-4" />
           </Button>
+          </Link>
         </div>
 
         {/* Tours Grid */}
