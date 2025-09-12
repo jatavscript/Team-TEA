@@ -16,9 +16,10 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto px-6">
+        <div className="flex items-center justify-around h-16 w-full">
           {/* Logo */}
+          <Link to={"/"}>
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-orange-500 rounded-sm flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm"></div>
@@ -28,6 +29,7 @@ const Navigation = () => {
               <div className="text-xs text-gray-300">Sikkim's Digital Heritage Tours</div>
             </div>
           </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -69,11 +71,11 @@ const Navigation = () => {
             <div className="flex items-center space-x-2 text-white">
               <Globe className="h-4 w-4" />
               <select className="bg-transparent border-none outline-none text-white">
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-                <option value="ne">NE</option>
+                <option value="en" className="bg-black ">EN</option>
+                <option value="hi" className="bg-black">HI</option>
+                <option value="ne" className="bg-black">NE</option>
               </select>
-              <ChevronDown className="h-4 w-4" />
+              {/* <ChevronDown className="h-4 w-4" /> */}
             </div>
           </div>
 
