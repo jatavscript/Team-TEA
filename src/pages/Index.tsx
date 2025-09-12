@@ -1,29 +1,23 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import ImmersiveExperience from "@/components/ImmersiveExperience";
-import VirtualTours from "@/components/VirtualTours";
-import InteractiveMap from "@/components/InteractiveMap";
-import SacredCalendar from "@/components/SacredCalendar";
-import CommunityConservation from "@/components/CommunityConservation";
-import Features from "@/components/Features";
-import ItineraryPlanner from "@/components/ItineraryPlanner";
-import TourismIntegration from "@/components/TourismIntegration";
-import Footer from "@/components/Footer";
+import { HeritageHeader } from "@/components/ui/heritage-header";
+import { HeritageHero } from "@/components/ui/heritage-hero";
+import { ArchiveOverview } from "@/components/ui/archive-overview";
+import { AiSearch } from "@/components/ui/ai-search";
+import { FeaturedItems } from "@/components/ui/featured-items";
+import { ResearchPortal } from "@/components/ui/research-portal";
+import { HeritageCommunity } from "@/components/ui/heritage-community";
+import { HeritageFooter } from "@/components/ui/heritage-footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <ImmersiveExperience />
-      <VirtualTours /> 
-      <InteractiveMap />
-      <SacredCalendar />
-      <ItineraryPlanner />
-      <CommunityConservation />
-      <Features />
-      <TourismIntegration />
-      <Footer />
+    <div className="min-h-screen bg-background">
+      <HeritageHeader />
+      <HeritageHero />
+      <ArchiveOverview />
+      <AiSearch />
+      <FeaturedItems />
+      <ResearchPortal />
+      <HeritageCommunity />
+      <HeritageFooter />
     </div>
   );
 };

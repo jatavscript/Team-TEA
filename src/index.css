@@ -2,72 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Monastery360 Design System - Buddhist monastery and Himalayan inspired */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
-    /* Base colors inspired by monastery stones and parchment */
-    --background: 35 20% 98%;
-    --foreground: 220 15% 15%;
+    /* Heritage theme colors */
+    --background: 222 47% 11%;
+    --foreground: 45 100% 85%;
 
-    /* Card colors - warm monastery stone */
-    --card: 35 15% 96%;
-    --card-foreground: 220 15% 15%;
+    --card: 225 39% 15%;
+    --card-foreground: 45 100% 85%;
 
-    --popover: 35 15% 96%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 225 39% 15%;
+    --popover-foreground: 45 100% 85%;
 
-    /* Primary - Sacred saffron and gold tones */
-    --primary: 35 85% 55%;
-    --primary-foreground: 35 15% 98%;
-    --primary-glow: 40 90% 65%;
+    --primary: 45 93% 58%;
+    --primary-foreground: 222 47% 11%;
 
-    /* Secondary - Deep monastery burgundy */
-    --secondary: 355 60% 25%;
-    --secondary-foreground: 35 15% 98%;
+    --secondary: 225 39% 20%;
+    --secondary-foreground: 45 100% 85%;
 
-    /* Muted - Mountain mist colors */
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 225 39% 20%;
+    --muted-foreground: 220 15% 65%;
 
-    /* Accent - Himalayan sky blue */
-    --accent: 210 75% 65%;
-    --accent-foreground: 220 15% 15%;
+    --accent: 45 93% 58%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 75% 55%;
-    --destructive-foreground: 35 15% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 100% 85%;
 
-    --border: 35 20% 88%;
-    --input: 35 20% 88%;
-    --ring: 35 85% 55%;
+    --border: 225 39% 25%;
+    --input: 225 39% 20%;
+    --ring: 45 93% 58%;
 
-    /* Custom monastery colors */
-    --monastery-gold: 45 95% 60%;
-    --monastery-burgundy: 355 60% 25%;
-    --himalayan-blue: 210 75% 65%;
-    --mountain-mist: 220 15% 85%;
-    --prayer-flag-red: 0 75% 55%;
-    --prayer-flag-yellow: 55 90% 65%;
-    --prayer-flag-green: 140 50% 45%;
-    --prayer-flag-blue: 220 75% 55%;
-    --prayer-flag-white: 0 0% 98%;
-
+    /* Custom heritage design tokens */
+    --heritage-blue: 222 47% 11%;
+    --heritage-blue-light: 225 39% 15%;
+    --heritage-blue-lighter: 225 39% 20%;
+    --heritage-gold: 45 93% 58%;
+    --heritage-gold-light: 45 100% 85%;
+    
     /* Gradients */
-    --gradient-monastery: linear-gradient(135deg, hsl(var(--monastery-gold)) 0%, hsl(var(--primary)) 50%, hsl(var(--monastery-burgundy)) 100%);
-    --gradient-himalayan: linear-gradient(180deg, hsl(var(--himalayan-blue)) 0%, hsl(var(--accent)) 50%, hsl(var(--mountain-mist)) 100%);
-    --gradient-sacred: linear-gradient(45deg, hsl(var(--monastery-gold)) 0%, hsl(var(--prayer-flag-yellow)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--monastery-burgundy)) 50%, hsl(var(--himalayan-blue)) 100%);
-
-    /* Shadows with monastery glow */
-    --shadow-monastery: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
-    --shadow-elevated: 0 20px 60px -10px hsl(var(--monastery-burgundy) / 0.2);
-
-    /* Animation timings */
-    --transition-monastery: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s ease-in-out;
-
-    --radius: 0.5rem;
+    --gradient-heritage: linear-gradient(135deg, hsl(var(--heritage-blue)), hsl(var(--heritage-blue-light)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--heritage-gold)), hsl(45 80% 65%));
+    
+    /* Shadows */
+    --shadow-heritage: 0 10px 30px -10px hsl(var(--heritage-blue) / 0.5);
+    --shadow-gold-glow: 0 0 40px hsl(var(--heritage-gold) / 0.2);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -132,53 +117,5 @@
 
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-/* 3D Card Effects for Immersive Experience */
-@layer components {
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-
-  .transform-style-preserve-3d {
-    transform-style: preserve-3d;
-  }
-
-  .translate-z-25 {
-    transform: translate3d(0px, 0px, 25px);
-  }
-
-  .translate-z-26 {
-    transform: translate3d(0, 0, 26px);
-  }
-
-  .translate-z-30 {
-    transform: translate3d(0px, 0px, 30px);
-  }
-
-  .rotate-3d-1-1-0-30 {
-    transform: rotate3d(1, 1, 0, 30deg);
-  }
-
-  .border-top-right-radius-full {
-    border-top-right-radius: 100%;
-  }
-
-  /* Custom gradient backgrounds for feature cards */
-  .bg-gradient-red-pink {
-    background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
-  }
-
-  .bg-gradient-blue-cyan {
-    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-  }
-
-  .bg-gradient-green-emerald {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  }
-
-  .bg-gradient-orange-yellow {
-    background: linear-gradient(135deg, #f97316 0%, #eab308 100%);
   }
 }
