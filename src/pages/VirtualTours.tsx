@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
+import monasteryInterior from "@/assets/ramtech-banner1.jpg";
+import monasteryHero from "@/assets/monastery-hero.jpg";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Play, 
@@ -50,7 +52,7 @@ const VirtualTours = () => {
       duration: "45 min",
       rating: 4.9,
       views: "125K",
-      image: "/lovable-uploads/9c195588-d0ec-4063-912c-7a528dc0dd01.png",
+      image: "src/assets/rumtek.jpg",
       category: "Active Monastery"
     },
     {
@@ -61,7 +63,7 @@ const VirtualTours = () => {
       duration: "30 min",
       rating: 4.8,
       views: "98K",
-      image: "/lovable-uploads/030cc0a5-7a96-48b7-9924-e1d002514bb0.png",
+      image: "src/assets/pemayangtse.jpg",
       category: "Historic Site"
     },
     {
@@ -72,7 +74,7 @@ const VirtualTours = () => {
       duration: "25 min", 
       rating: 4.7,
       views: "87K",
-      image: "/lovable-uploads/70750049-ba5d-4ae6-a7ed-5aa0f6401fac.png",
+      image: "src/assets/enchey.jpg",
       category: "Active Monastery"
     },
     {
@@ -83,7 +85,7 @@ const VirtualTours = () => {
       duration: "35 min",
       rating: 4.9,
       views: "156K", 
-      image: "/lovable-uploads/00aafb18-34fd-4b5c-bb8e-12cdf87153de.png",
+      image: "src/assets/tashiding.jpg",
       category: "Sacred Site"
     },
     {
@@ -94,7 +96,7 @@ const VirtualTours = () => {
       duration: "20 min",
       rating: 4.6,
       views: "45K",
-      image: "/lovable-uploads/a860a24e-abf1-45c7-919f-ec1d134f8e48.png",
+      image: "src/assets/dubdi.jpg",
       category: "Historic Site"
     },
     {
@@ -105,7 +107,7 @@ const VirtualTours = () => {
       duration: "20 min",
       rating: 4.7,
       views: "82K",
-      image: "/lovable-uploads/d608c4d8-0fc2-4fff-bc02-4ec4917beaed.png",
+      image: "src/assets/tsug.jpg",
       category: "Active Monastery"
     },
     {
@@ -116,7 +118,7 @@ const VirtualTours = () => {
       duration: "30 min",
       rating: 4.6,
       views: "56K",
-      image: "/lovable-uploads/3002ed2e-82d2-41aa-bf59-fe5cb1c8b137.png",
+      image: "src/assets/ralang.jpg",
       category: "Active Monastery"
     },
     {
@@ -127,7 +129,7 @@ const VirtualTours = () => {
       duration: "40 min",
       rating: 4.8,
       views: "134K",
-      image: "/lovable-uploads/dedb3c3e-b625-4f92-9298-ce58aeaf42d0.png",
+      image: "src/assets/namygal.jpg",
       category: "Educational"
     }
   ];
@@ -243,7 +245,7 @@ const VirtualTours = () => {
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/lovable-uploads/454979dd-b894-4d87-a200-25d87a03ecd4.png')` }}
+          style={{ backgroundImage: `url(${monasteryHero})` }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -348,7 +350,7 @@ const VirtualTours = () => {
             >
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url('/lovable-uploads/9c195588-d0ec-4063-912c-7a528dc0dd01.png')` }}
+                style={{ backgroundImage: `url(${monasteryInterior})` }}
               >
                 <div className="absolute inset-0 bg-black/30"></div>
               </div>
