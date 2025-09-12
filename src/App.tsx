@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import VirtualTours from "./pages/VirtualTours";
 import DigitalArchives from "./pages/DigitalArchives";
 import SacredCelebrations from "./pages/SacredCelebrations";
+import MonasteryTour from "./pages/MonasteryTour";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/virtual-tours" element={<VirtualTours />} />
+          <Route path="/monastery/:monasteryId" element={<MonasteryTour />} />
           <Route path="/digital-archives" element={<DigitalArchives />} />
           <Route path="/sacred-celebrations" element={<SacredCelebrations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
