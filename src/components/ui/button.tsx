@@ -22,6 +22,7 @@ const buttonVariants = cva(
         sacred: "bg-gradient-sacred text-monastery-burgundy hover:shadow-monastery hover:scale-105 transform transition-all duration-300 font-semibold",
         himalayan: "bg-himalayan-blue text-prayer-white hover:bg-himalayan-blue/90 shadow-elevated hover:shadow-glow",
         prayer: "bg-prayer-red text-prayer-white hover:bg-prayer-red/90 hover:shadow-glow animate-glow",
+        heritage: "bg-gradient-gold text-heritage-blue hover:shadow-gold-glow transition-all duration-300 font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
