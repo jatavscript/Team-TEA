@@ -63,6 +63,12 @@
     --prayer-flag-blue: 220 75% 55%;
     --prayer-flag-white: 0 0% 98%;
 
+    /* Light wooden/brown colors for heritage sections */
+    --wooden-light: 35 25% 96%;
+    --wooden-warm: 32 20% 94%;
+    --wooden-cream: 38 30% 97%;
+    --wooden-beige: 35 15% 92%;
+
     /* Gradients */
     --gradient-monastery: linear-gradient(135deg, hsl(var(--monastery-gold)) 0%, hsl(var(--primary)) 50%, hsl(var(--monastery-burgundy)) 100%);
     --gradient-himalayan: linear-gradient(180deg, hsl(var(--himalayan-blue)) 0%, hsl(var(--accent)) 50%, hsl(var(--mountain-mist)) 100%);

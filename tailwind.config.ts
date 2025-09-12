@@ -85,6 +85,12 @@ export default {
           gold: "hsl(var(--heritage-gold))",
           "gold-light": "hsl(var(--heritage-gold-light))",
         },
+        wooden: {
+          light: "hsl(var(--wooden-light))",
+          warm: "hsl(var(--wooden-warm))",
+          cream: "hsl(var(--wooden-cream))",
+          beige: "hsl(var(--wooden-beige))",
+        },
       },
       backgroundImage: {
         "gradient-monastery": "var(--gradient-monastery)",
