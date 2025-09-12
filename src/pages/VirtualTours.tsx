@@ -307,7 +307,7 @@ const VirtualTours = () => {
       {/* Search & Filter Bar removed */}
 
       {/* Featured Virtual Tour */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background" id="virtual-tours">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Virtual Tour</h2>
@@ -465,13 +465,13 @@ const VirtualTours = () => {
               </Card>
             ))}
           </div>
-          
+{/*           
           <div className="text-center mt-8">
             <Button variant="outline" size="lg">
               View All Tours
               <ChevronRight className="h-4 w-4 ml-2" />
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
 
