@@ -259,13 +259,13 @@ const VirtualTours = () => {
             high-definition photography, and expert cultural commentary
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4" onClick={() => { document.getElementById("virtual-tours").scrollIntoView({ behavior: "smooth" }) }}>
               <Play className="h-5 w-5 mr-2" />
               Start Virtual Tour
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-4">
+            <Button size="lg" variant="outline" className="bg-white text-gray-900 hover:text-white hover:bg-gray-900/10 px-8 py-4" onClick={() => { document.getElementById("all-monesteries").scrollIntoView({ behavior: "smooth" }) }}>
               <MapPin className="h-5 w-5 mr-2" />
-              Explore Map
+              Explore Monastery
             </Button>
           </div>
         </div>
@@ -334,7 +334,7 @@ const VirtualTours = () => {
       </section>
 
       {/* Featured Virtual Tour */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background" id="virtual-tours">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Virtual Tour</h2>
@@ -412,7 +412,7 @@ const VirtualTours = () => {
       </section>
 
       {/* Explore All Monasteries */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20 bg-muted/50" id="all-monesteries">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Explore All Monasteries</h2>
@@ -492,13 +492,13 @@ const VirtualTours = () => {
               </Card>
             ))}
           </div>
-          
+{/*           
           <div className="text-center mt-8">
             <Button variant="outline" size="lg">
               View All Tours
               <ChevronRight className="h-4 w-4 ml-2" />
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
 

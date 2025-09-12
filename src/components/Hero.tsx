@@ -37,7 +37,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium border-2 border-white" onClick={() => { document.getElementById("virtual-tours").scrollIntoView({ behavior: "smooth" }) }}>
+              <Button className="bg-white text-gray-900 hover:text-white hover:bg-gray-100 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium border-2 border-white" onClick={() => { document.getElementById("virtual-tours").scrollIntoView({ behavior: "smooth" }) }}>
                 <Camera className="h-6 w-6" />
                 <span>Start Virtual Tour</span>
               </Button>
