@@ -2,12 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -27,7 +22,6 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -53,21 +47,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        monastery: {
-          gold: "hsl(var(--monastery-gold))",
-          burgundy: "hsl(var(--monastery-burgundy))",
-        },
-        himalayan: {
-          blue: "hsl(var(--himalayan-blue))",
-          mist: "hsl(var(--mountain-mist))",
-        },
-        prayer: {
-          red: "hsl(var(--prayer-flag-red))",
-          yellow: "hsl(var(--prayer-flag-yellow))",
-          green: "hsl(var(--prayer-flag-green))",
-          blue: "hsl(var(--prayer-flag-blue))",
-          white: "hsl(var(--prayer-flag-white))",
-        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -78,36 +57,30 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        heritage: {
-          blue: "hsl(var(--heritage-blue))",
-          "blue-light": "hsl(var(--heritage-blue-light))",
-          "blue-lighter": "hsl(var(--heritage-blue-lighter))",
-          gold: "hsl(var(--heritage-gold))",
-          "gold-light": "hsl(var(--heritage-gold-light))",
-        },
+        festival: {
+          blue: "hsl(var(--festival-blue))",
+          orange: "hsl(var(--festival-orange))",
+          purple: "hsl(var(--festival-purple))",
+          green: "hsl(var(--festival-green))",
+          red: "hsl(var(--festival-red))",
+          gold: "hsl(var(--festival-gold))",
+        }
       },
       backgroundImage: {
-        "gradient-monastery": "var(--gradient-monastery)",
-        "gradient-himalayan": "var(--gradient-himalayan)",
-        "gradient-sacred": "var(--gradient-sacred)",
-        "gradient-hero": "var(--gradient-hero)",
-        "gradient-red-pink":
-          "linear-gradient(135deg, #ef4444 0%, #ec4899 100%)",
-        "gradient-blue-cyan":
-          "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
-        "gradient-green-emerald":
-          "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-        "gradient-orange-yellow":
-          "linear-gradient(135deg, #f97316 0%, #eab308 100%)",
-        "gradient-heritage": "var(--gradient-heritage)",
-        "gradient-gold": "var(--gradient-gold)",
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-orange': 'var(--gradient-orange)',
+        'gradient-blue': 'var(--gradient-blue)',
+        'gradient-purple': 'var(--gradient-purple)',
+        'gradient-green': 'var(--gradient-green)',
       },
       boxShadow: {
-        monastery: "var(--shadow-monastery)",
-        glow: "var(--shadow-glow)",
-        elevated: "var(--shadow-elevated)",
-        heritage: "var(--shadow-heritage)",
-        "gold-glow": "var(--shadow-gold-glow)",
+        'elegant': 'var(--shadow-elegant)',
+        'glow': 'var(--shadow-glow)',
+        'card': 'var(--shadow-card)',
+        'purple': 'var(--shadow-purple)',
+        'orange': 'var(--shadow-orange)',
+        'green': 'var(--shadow-green)',
+        'blue': 'var(--shadow-blue)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -128,28 +101,13 @@ export default {
             height: "var(--radix-accordion-content-height)",
           },
           to: {
-            height: "var(--radix-accordion-content-height)",
+            height: "0",
           },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        glow: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
-        },
-        "monastery-spin": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 3s ease-in-out infinite",
-        glow: "glow 2s ease-in-out infinite",
-        "monastery-spin": "monastery-spin 20s linear infinite",
       },
     },
   },

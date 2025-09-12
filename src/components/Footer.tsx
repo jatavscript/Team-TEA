@@ -1,153 +1,184 @@
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { 
-  Mail, 
-  Phone, 
   MapPin, 
+  Phone, 
+  Mail, 
   Facebook, 
   Twitter, 
   Instagram, 
   Youtube,
-  ExternalLink
+  Calendar,
+  Users,
+  Info,
+  BookOpen,
+  Camera,
+  Heart,
+  Sparkles
 } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
-    { label: "Virtual Tours", href: "#tours" },
-    { label: "Interactive Map", href: "#map" },
-    { label: "Digital Archives", href: "#archives" },
-    { label: "Cultural Events", href: "#events" },
-    { label: "Tourism Partners", href: "#tourism" },
+    { name: "All Festivals", href: "#festivals", icon: Calendar },
+    { name: "Tours & Packages", href: "#tours", icon: Users },
+    { name: "About Sikkim", href: "#about", icon: Info },
+    { name: "Cultural Guide", href: "#guide", icon: BookOpen },
+    { name: "Photo Gallery", href: "#gallery", icon: Camera },
+    { name: "Testimonials", href: "#testimonials", icon: Heart }
   ];
 
-  const resources = [
-    { label: "API Documentation", href: "#" },
-    { label: "Developer Guide", href: "#" },
-    { label: "Cultural Guidelines", href: "#" },
-    { label: "Download Mobile App", href: "#" },
-    { label: "Support Center", href: "#" },
+  const festivals = [
+    { name: "Losar Festival", month: "February" },
+    { name: "Bumchu Festival", month: "March" },
+    { name: "Saga Dawa", month: "May" },
+    { name: "Pang Lhabsol", month: "August" },
+    { name: "Dashain Festival", month: "September" },
+    { name: "Diwali Celebrations", month: "October" }
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+  const destinations = [
+    "Gangtok Monasteries",
+    "Tashiding Monastery", 
+    "Rumtek Monastery",
+    "Pelling Attractions",
+    "Yuksom Villages",
+    "Lachung Valley"
   ];
 
   return (
-    <footer className="bg-monastery-burgundy text-prayer-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-monastery rounded-lg flex items-center justify-center">
-                <span className="text-prayer-white font-bold">M360</span>
+    <footer className="bg-gradient-to-br from-primary via-primary/95 to-festival-purple text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-festival-gold rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-festival-orange rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-festival-blue rounded-full blur-3xl"></div>
+      </div>
+
+
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3 group">
+              <div className="relative">
+                <div className="w-14 h-14 bg-gradient-to-br from-festival-gold via-yellow-400 to-festival-gold rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-festival-gold/50 transition-all duration-300 group-hover:scale-110">
+                  <span className="text-primary font-bold text-2xl">S</span>
+                  <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-festival-gold animate-pulse" />
+                </div>
               </div>
-              <span className="text-2xl font-bold">Monastery360</span>
+              <div className="group-hover:scale-105 transition-transform duration-300">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-festival-gold bg-clip-text text-transparent">Sikkim Tours</h3>
+                <p className="text-white/90 text-sm font-medium">Sacred Celebrations</p>
+              </div>
             </div>
-            <p className="text-prayer-white/80 mb-6 leading-relaxed">
-              Preserving and sharing Sikkim's sacred heritage through immersive digital technology. 
-              Connecting the world to ancient wisdom.
+            
+            <p className="text-white/80 leading-relaxed">
+              Experience the mystical festivals and vibrant celebrations of Sikkim. 
+              We offer authentic cultural immersion and respectful participation in sacred traditions.
             </p>
+
+            {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-monastery-gold" />
-                <span className="text-sm">info@monastery360.org</span>
+                <MapPin className="w-5 h-5 text-festival-gold flex-shrink-0" />
+                <span className="text-white/80">MG Marg, Gangtok, Sikkim 737101</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-monastery-gold" />
-                <span className="text-sm">+91 98765 43210</span>
+                <Phone className="w-5 h-5 text-festival-gold flex-shrink-0" />
+                <span className="text-white/80">+91 98765 43210</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-monastery-gold" />
-                <span className="text-sm">Gangtok, Sikkim, India</span>
+                <Mail className="w-5 h-5 text-festival-gold flex-shrink-0" />
+                <span className="text-white/80">info@sikkimtours.com</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">Quick Links</h3>
-            <div className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="block text-prayer-white/80 hover:text-monastery-gold transition-colors text-sm"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => {
+                const IconComponent = link.icon;
+                return (
+                  <li key={link.name}>
+                    <a 
+                      href={link.href}
+                      className="flex items-center space-x-3 text-white/80 hover:text-festival-gold transition-colors"
+                    >
+                      <IconComponent className="w-4 h-4" />
+                      <span>{link.name}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
-          {/* Resources */}
+          {/* Festivals */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">Resources</h3>
-            <div className="space-y-3">
-              {resources.map((resource, index) => (
-                <a
-                  key={index}
-                  href={resource.href}
-                  className="flex items-center space-x-2 text-prayer-white/80 hover:text-monastery-gold transition-colors text-sm"
-                >
-                  <span>{resource.label}</span>
-                  <ExternalLink className="h-3 w-3" />
-                </a>
+            <h4 className="text-lg font-bold mb-6">Major Festivals</h4>
+            <ul className="space-y-3">
+              {festivals.map((festival) => (
+                <li key={festival.name} className="flex items-center justify-between">
+                  <span className="text-white/80">{festival.name}</span>
+                  <span className="text-festival-gold text-sm">{festival.month}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          {/* Government & Partners */}
+          {/* Destinations */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-monastery-gold">Official Partners</h3>
-            <div className="space-y-4">
-              <div className="bg-prayer-white/10 rounded-lg p-4">
-                <div className="text-sm font-medium mb-2">Government of Sikkim</div>
-                <div className="text-xs text-prayer-white/70">Tourism & Cultural Affairs Department</div>
-              </div>
-              <div className="bg-prayer-white/10 rounded-lg p-4">
-                <div className="text-sm font-medium mb-2">Smart India Hackathon</div>
-                <div className="text-xs text-prayer-white/70">2025 Cultural Preservation Initiative</div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="mt-6">
-              <h4 className="text-sm font-medium mb-3 text-monastery-gold">Follow Us</h4>
-              <div className="flex space-x-3">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="p-2 bg-prayer-white/10 rounded-lg hover:bg-monastery-gold/20 transition-colors"
+            <h4 className="text-lg font-bold mb-6">Popular Destinations</h4>
+            <ul className="space-y-3">
+              {destinations.map((destination) => (
+                <li key={destination}>
+                  <a 
+                    href="#"
+                    className="text-white/80 hover:text-festival-gold transition-colors"
                   >
-                    <social.icon className="h-4 w-4" />
+                    {destination}
                   </a>
-                ))}
-              </div>
-            </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-prayer-white/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-prayer-white/70">
-              © 2025 Monastery360. All rights reserved. Built for Smart India Hackathon 2025.
+      {/* Social Media & Bottom Bar */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+            {/* Social Media */}
+            <div className="flex items-center space-x-6">
+              <span className="text-white/80">Follow Us:</span>
+              <div className="flex items-center space-x-4">
+                <a href="#" className="text-white/80 hover:text-festival-gold transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-festival-gold transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-festival-gold transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-festival-gold transition-colors">
+                  <Youtube className="w-5 h-5" />
+                </a>
+              </div>
             </div>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-prayer-white/70 hover:text-monastery-gold transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-prayer-white/70 hover:text-monastery-gold transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-prayer-white/70 hover:text-monastery-gold transition-colors">
-                Cultural Guidelines
-              </a>
+
+            {/* Copyright */}
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-white/80 text-sm">
+              <span>© 2024 Sikkim Tours. All rights reserved.</span>
+              <div className="flex items-center space-x-4">
+                <a href="#" className="hover:text-festival-gold transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-festival-gold transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-festival-gold transition-colors">Cookie Policy</a>
+              </div>
             </div>
           </div>
         </div>

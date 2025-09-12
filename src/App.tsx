@@ -4,10 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import VirtualTours from "./pages/VirtualTours";
-import DigitalArchives from "./pages/DigitalArchives";
-import SacredCelebrations from "./pages/SacredCelebrations";
-import MonasteryTour from "./pages/MonasteryTour";
+import TripPlanner from "./pages/TripPlanner";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,10 +17,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/virtual-tours" element={<VirtualTours />} />
-          <Route path="/monastery/:monasteryId" element={<MonasteryTour />} />
-          <Route path="/digital-archives" element={<DigitalArchives />} />
-          <Route path="/sacred-celebrations" element={<SacredCelebrations />} />
+          <Route path="/trip-planner" element={<TripPlanner />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
