@@ -1,6 +1,7 @@
 import React from 'react';
 import { Camera, Bot, MapPin, Archive, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const ImmersiveExperience = () => {
   const features = [
@@ -11,7 +12,8 @@ const ImmersiveExperience = () => {
       status: "45 Tours Available",
       icon: Camera,
       gradient: "from-red-500 to-pink-500",
-      statusColor: "text-orange-500"
+      statusColor: "text-orange-500",
+      link: "/virtual-tours"
     },
     {
       id: 2,
@@ -20,7 +22,8 @@ const ImmersiveExperience = () => {
       status: "24/7 Available",
       icon: Bot,
       gradient: "from-blue-500 to-cyan-500",
-      statusColor: "text-orange-400"
+      statusColor: "text-orange-400",
+      link: "#"
     },
     {
       id: 3,
@@ -29,7 +32,8 @@ const ImmersiveExperience = () => {
       status: "Real-time Data",
       icon: MapPin,
       gradient: "from-green-500 to-emerald-500",
-      statusColor: "text-green-500"
+      statusColor: "text-green-500",
+      link: "/#map"
     },
     {
       id: 4,
@@ -38,7 +42,8 @@ const ImmersiveExperience = () => {
       status: "5000+ Items",
       icon: Archive,
       gradient: "from-orange-500 to-yellow-500",
-      statusColor: "text-orange-500"
+      statusColor: "text-orange-500",
+      link: "/digital-archives"
     }
   ];
 
@@ -155,6 +160,7 @@ const ImmersiveExperience = () => {
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
+              <Link to={feature.link || "#"} key={feature.id}>
               <motion.div
                 key={feature.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -169,7 +175,7 @@ const ImmersiveExperience = () => {
                   y: -10,
                   transition: { duration: 0.3, ease: "easeOut" }
                 }}
-              >
+                >
                 <FeatureCard
                   title={feature.title}
                   description={feature.description}
@@ -179,6 +185,7 @@ const ImmersiveExperience = () => {
                   icon={IconComponent}
                 />
               </motion.div>
+              </Link>
             );
           })}
         </motion.div>
