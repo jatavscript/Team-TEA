@@ -8,14 +8,14 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Virtual Tours", href: "/virtual-tours" },
-    { label: "Interactive Map", href: "#map" },
+    { label: "Interactive Map", href: "/interactive-map" },
     { label: "Digital Archives", href: "/digital-archives" },
     { label: "Cultural Calendar", href: "/sacred-celebrations" },
     { label: "Plan Visit", href: "#plan" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-gray-900/95 backdrop-blur-md">
       <div className="mx-auto px-6">
         <div className="flex items-center justify-around h-16 w-full">
           {/* Logo */}

@@ -8,6 +8,7 @@ import VirtualTours from "./pages/VirtualTours";
 import DigitalArchives from "./pages/DigitalArchives";
 import SacredCelebrations from "./pages/SacredCelebrations";
 import MonasteryTour from "./pages/MonasteryTour";
+import InteractiveMapPage from "./pages/interactiveMap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/monastery/:monasteryId" element={<MonasteryTour />} />
           <Route path="/digital-archives" element={<DigitalArchives />} />
           <Route path="/sacred-celebrations" element={<SacredCelebrations />} />
+          <Route path="/interactive-map" element={<InteractiveMapPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
