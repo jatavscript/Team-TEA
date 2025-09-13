@@ -43,7 +43,7 @@ const VirtualTours = () => {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${'/assets/monastery-interior.jpg'})` }}
+                style={{ backgroundImage: `url(${'/assets/ramtech-banner1.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/30"></div>
               </div>
@@ -104,7 +104,7 @@ const VirtualTours = () => {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${'/assets/virtual-tour.jpg'})` }}
+                style={{ backgroundImage: `url(${'/assets/Pemayangtse.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
@@ -131,7 +131,7 @@ const VirtualTours = () => {
               {/* Background Image with Prayer Flags */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${'/assets/virtual-tour.jpg'})` }}
+                style={{ backgroundImage: `url(${'/assets/Enchey.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
