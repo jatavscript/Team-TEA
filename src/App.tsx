@@ -9,7 +9,7 @@ import VirtualTours from "./pages/VirtualTours";
 import DigitalArchives from "./pages/DigitalArchives";
 import SacredCelebrations from "./pages/SacredCelebrations";
 import MonasteryTour from "./pages/MonasteryTour";
-import InteractiveMapPage from "./pages/interactiveMap";
+import InteractiveMapPage from "./pages/InteractiveMap";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 
@@ -30,6 +30,7 @@ const App = () => (
             <Route path="/virtual-tours" element={<VirtualTours />} />
             <Route path="/monastery/:monasteryId" element={<MonasteryTour />} />
             <Route path="/digital-archives" element={<DigitalArchives />} />
+            <Route path="/interactive-map" element={<InteractiveMapPage />} />
             <Route
               path="/sacred-celebrations"
               element={<SacredCelebrations />}

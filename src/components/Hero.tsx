@@ -51,7 +51,7 @@ const Hero = () => {
                 className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium"
                 onClick={() => {
                   document
-                    .getElementById("interactive-map")
+                    .getElementById("plan")
                     .scrollIntoView({ behavior: "smooth" });
                 }}
               >
@@ -62,9 +62,10 @@ const Hero = () => {
               <Button
                 className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium"
                 onClick={() => {
-                  document
-                    .getElementById("interactive-map")
-                    .scrollIntoView({ behavior: "smooth" });
+                  alert("Comming Soon")
+                  // document
+                  //   .getElementById("interactive-map")
+                  //   .scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 <MapPin className="h-6 w-6" />
