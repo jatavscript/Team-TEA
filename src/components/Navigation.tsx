@@ -27,7 +27,6 @@ const Navigation = () => {
     { label: "Interactive Map", href: "/interactive-map" },
     { label: "Digital Archives", href: "/digital-archives" },
     { label: "Cultural Calendar", href: "/sacred-celebrations" },
-    { label: "Plan Visit", href: "#to" },
   ];
 
   const searchItems = [

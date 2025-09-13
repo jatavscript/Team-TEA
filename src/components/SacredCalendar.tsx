@@ -127,15 +127,11 @@ const SacredCalendar = () => {
                     <Button
                       variant="secondary"
                       className="bg-white text-red-600 hover:bg-red-50"
-                    >
-                      Book Tour Guide
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="border-white text-red-600 hover:bg-white/10"
+                      onClick={() => window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Add+to+Calendar+Event&dates=20250913T120000Z/20250913T130000Z&details=Example+event+from+site&location=Your+Location`.replace(/\s+/g, ''), '_blank')}
                     >
                       Add to Calendar
                     </Button>
+
                   </div>
                 </div>
               </div>
