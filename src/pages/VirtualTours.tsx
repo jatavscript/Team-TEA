@@ -83,7 +83,7 @@ const VirtualTours = () => {
       duration: "30 min",
       rating: 4.8,
       views: "98K",
-      image: "/assets/pemayangtse.jpg",
+      image: "/assets/Pemayangtse.jpg",
       category: "Historic Site"
     },
     {
@@ -94,7 +94,7 @@ const VirtualTours = () => {
       duration: "25 min", 
       rating: 4.7,
       views: "87K",
-      image: "/assets/enchey.jpg",
+      image: "/assets/Enchey.jpg",
       category: "Active Monastery"
     },
     {
@@ -105,7 +105,7 @@ const VirtualTours = () => {
       duration: "35 min",
       rating: 4.9,
       views: "156K", 
-      image: "/assets/tashiding.jpg",
+      image: "/assets/Tashiding.jpg",
       category: "Sacred Site"
     },
     {
