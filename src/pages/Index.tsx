@@ -5,7 +5,7 @@ import VirtualTours from "@/components/VirtualTours";
 import InteractiveMap from "@/components/InteractiveMap";
 import SacredCalendar from "@/components/SacredCalendar";
 import CommunityConservation from "@/components/CommunityConservation";
-import Features from "@/components/Features";
+import SurveyForm from "@/components/SurveyForm";
 import ItineraryPlanner from "@/components/ItineraryPlanner";
 import TourismIntegration from "@/components/TourismIntegration";
 import Footer from "@/components/Footer";
@@ -16,12 +16,12 @@ const Index = () => {
       <Navigation />
       <Hero />
       <ImmersiveExperience />
-      <VirtualTours /> 
+      <VirtualTours />
       <InteractiveMap />
       <SacredCalendar />
       <ItineraryPlanner />
       <CommunityConservation />
-      {/* <Features /> */}
+      <SurveyForm />
       <TourismIntegration />
       <Footer />
     </div>
