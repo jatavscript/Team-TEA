@@ -19,7 +19,7 @@ const SacredCelebrations = () => {
       location: "Rumtek Monastery",
       duration: "3 Days",
       participants: "500+",
-      image: "/lovable-uploads/3002ed2e-82d2-41aa-bf59-fe5cb1c8b137.png",
+      image: "/src/assets/ramtech-banner1.jpg",
       description: "Tibetan New Year celebration with traditional dances, prayers, and cultural performances.",
       price: "₹2,500",
       featured: true
@@ -31,7 +31,7 @@ const SacredCelebrations = () => {
       location: "Pemayangtse Monastery",
       duration: "1 Day",
       participants: "300+",
-      image: "/lovable-uploads/454979dd-b894-4d87-a200-25d87a03ecd4.png",
+      image: "/src/assets/monastery-interior.jpg",
       description: "Buddha's birth, enlightenment and parinirvana commemoration.",
       price: "₹1,800"
     },
@@ -42,7 +42,7 @@ const SacredCelebrations = () => {
       location: "Tashiding Monastery",
       duration: "2 Days",
       participants: "400+",
-      image: "/lovable-uploads/030cc0a5-7a96-48b7-9924-e1d002514bb0.png",
+      image: "/src/assets/tsug.jpg",
       description: "Sacred festival honoring the divine madman saint.",
       price: "₹2,200"
     }
@@ -118,9 +118,13 @@ const SacredCelebrations = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-monastery-primary via-himalayan-primary to-prayer-primary">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/src/assets/monastery-hero.jpg')` }}
+        />
+        <div className="absolute inset-0 bg-purple-900/50"></div>
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute inset-0 bg-[url('/lovable-uploads/3002ed2e-82d2-41aa-bf59-fe5cb1c8b137.png')] bg-cover bg-center opacity-30"></div>
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">
             Sacred Celebrations of Sikkim
@@ -247,67 +251,147 @@ const SacredCelebrations = () => {
         </div>
       </section>
 
-      {/* Cultural Calendar 2024 */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Cultural Calendar 2025 */}
+      <section className="py-16 bg-gradient-to-br from-green-400 via-green-500 to-green-600 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-10 right-10 w-16 h-16 border-2 border-white/20 rounded-full"></div>
+        <div className="absolute bottom-10 right-20 w-12 h-12 bg-white/10 rounded-full"></div>
+        <div className="absolute bottom-20 right-10 w-8 h-8 bg-white/15 rounded-full"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Cultural Calendar 2024</h2>
-            <p className="text-xl text-gray-600">Mark your calendar for these sacred events</p>
+            <h2 className="text-4xl font-bold text-white mb-4">Cultural Calendar 2025</h2>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              Plan your spiritual journey with our comprehensive festival calendar. Discover the perfect time to witness Sikkim's most sacred celebrations.
+            </p>
           </div>
           
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {calendarEvents.map((event, index) => (
-                <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow">
-                  <div className="text-3xl font-bold text-primary mb-2">{event.date}</div>
-                  <div className="text-sm text-gray-600 mb-1">{event.month}</div>
-                  <div className="text-sm font-medium">{event.event}</div>
-                </Card>
-              ))}
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Calendar Widget */}
+            <div className="bg-white rounded-2xl p-6 shadow-xl">
+              <div className="flex items-center justify-between mb-6">
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <span className="text-gray-600">‹</span>
+                </button>
+                <h3 className="text-xl font-bold text-gray-900">March 2025</h3>
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <span className="text-gray-600">›</span>
+                </button>
+              </div>
+              
+              {/* Calendar Grid */}
+              <div className="grid grid-cols-7 gap-2 mb-4">
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                  <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">
+                    {day}
+                  </div>
+                ))}
+                
+                {/* Calendar Days */}
+                {Array.from({ length: 31 }, (_, i) => {
+                  const day = i + 1;
+                  const isEventDay = [8, 15].includes(day);
+                  return (
+                    <div
+                      key={day}
+                      className={`text-center py-2 text-sm rounded-lg cursor-pointer transition-colors ${
+                        isEventDay
+                          ? 'bg-yellow-400 text-black font-bold'
+                          : 'hover:bg-gray-100 text-gray-700'
+                      }`}
+                    >
+                      {day}
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {/* Legend */}
+              <div className="border-t pt-4">
+                <h4 className="font-semibold text-gray-900 mb-3">Festival Types:</h4>
+                <div className="flex flex-wrap gap-4 text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span className="text-gray-600">Buddhist</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="text-gray-600">Traditional</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span className="text-gray-600">Hindu</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <span className="text-gray-600">Christian</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="text-center mt-8">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-                View Full Calendar
-              </Button>
+            
+            {/* March Festivals */}
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-white mb-6">March Festivals</h3>
+              
+              <Card className="bg-white/95 backdrop-blur-sm border-none shadow-lg">
+                <div className="relative">
+                  <img 
+                    src="/src/assets/Pemayangtse.jpg" 
+                    alt="Bumchu Festival"
+                    className="w-full h-32 object-cover rounded-t-lg"
+                  />
+                  <div className="absolute top-3 left-3 bg-green-600 text-white px-2 py-1 rounded text-xs font-medium">
+                    Traditional
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <h4 className="font-bold text-gray-900 mb-2">Bumchu Festival</h4>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                    <Calendar className="w-4 h-4" />
+                    March 8, 2025
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                    <MapPin className="w-4 h-4" />
+                    Tashiding
+                  </div>
+                  <Button size="sm" className="w-full bg-green-600 hover:bg-green-700">
+                    Learn More
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-white/95 backdrop-blur-sm border-none shadow-lg">
+                <div className="relative">
+                  <img 
+                    src="/src/assets/monastery-interior.jpg" 
+                    alt="Holi Festival"
+                    className="w-full h-32 object-cover rounded-t-lg"
+                  />
+                  <div className="absolute top-3 left-3 bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
+                    Traditional
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <h4 className="font-bold text-gray-900 mb-2">Holi</h4>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                    <Calendar className="w-4 h-4" />
+                    March 15, 2025
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                    <MapPin className="w-4 h-4" />
+                    Traditional
+                  </div>
+                  <Button size="sm" className="w-full bg-green-600 hover:bg-green-700">
+                    Learn More
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Festival Participation Guide */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Festival Participation Guide</h2>
-            <p className="text-xl text-gray-600">Everything you need for the perfect festival experience</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {participationGuides.map((guide, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className={`h-32 bg-gradient-to-br ${guide.color} flex items-center justify-center`}>
-                  <guide.icon className="w-16 h-16 text-white" />
-                </div>
-                <CardHeader>
-                  <CardTitle>{guide.title}</CardTitle>
-                  <CardDescription>{guide.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {guide.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full mt-4">Learn More</Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Extra Info Boxes */}
       <section className="py-16 bg-white">
@@ -359,160 +443,13 @@ const SacredCelebrations = () => {
       </section>
 
       {/* Never Miss a Sacred Moment */}
-      <section className="py-16 bg-gradient-to-br from-monastery-primary via-himalayan-primary to-prayer-primary text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Never Miss a Sacred Moment</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Stay connected with the spiritual rhythm of Sikkim. Get notifications for upcoming festivals, 
-            exclusive ceremonies, and special cultural events.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="text-center">
-              <Bell className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-              <h3 className="text-xl font-semibold mb-2">Smart Notifications</h3>
-              <p className="text-gray-200">Get timely alerts for festivals and ceremonies</p>
-            </div>
-            <div className="text-center">
-              <Calendar className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-              <h3 className="text-xl font-semibold mb-2">Personal Calendar</h3>
-              <p className="text-gray-200">Sync sacred events with your schedule</p>
-            </div>
-            <div className="text-center">
-              <Share2 className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-              <h3 className="text-xl font-semibold mb-2">Share Experiences</h3>
-              <p className="text-gray-200">Connect with fellow spiritual travelers</p>
-            </div>
-          </div>
-          
-          <Button size="lg" className="mt-8 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3">
-            Enable Notifications
-          </Button>
-        </div>
-      </section>
+      
 
       {/* Festival Memories */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Festival Memories</h2>
-            <p className="text-xl text-gray-600">Capturing the essence of sacred celebrations</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
-            <div>
-              <img 
-                src="/lovable-uploads/3002ed2e-82d2-41aa-bf59-fe5cb1c8b137.png" 
-                alt="Featured Festival Moment"
-                className="w-full h-96 object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-gray-900">Losar Festival 2024</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Experience the magic of Tibetan New Year as hundreds of devotees gather at Rumtek Monastery. 
-                The air fills with the sound of horns, chanting, and the rustle of prayer flags dancing in the mountain breeze.
-              </p>
-              <div className="flex items-center gap-4">
-                <Button className="flex items-center gap-2">
-                  <Play className="w-4 h-4" />
-                  Watch Highlights
-                </Button>
-                <Button variant="outline" className="flex items-center gap-2">
-                  <Camera className="w-4 h-4" />
-                  View Gallery
-                </Button>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {festivalMemories.map((image, index) => (
-              <div key={index} className="aspect-square overflow-hidden rounded-lg">
-                <img 
-                  src={image} 
-                  alt={`Festival Memory ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Cultural Insights & Traditions */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Cultural Insights & Traditions</h2>
-              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                Delve deep into the spiritual significance and cultural importance of Sikkim's sacred celebrations. 
-                Each festival carries centuries of wisdom, tradition, and spiritual practice.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Ancient Origins</h4>
-                    <p className="text-gray-600 text-sm">Festivals dating back over 1,000 years</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Spiritual Significance</h4>
-                    <p className="text-gray-600 text-sm">Deep Buddhist and Bon traditions</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Cultural Preservation</h4>
-                    <p className="text-gray-600 text-sm">Keeping traditions alive for future generations</p>
-                  </div>
-                </div>
-              </div>
-              
-              <Button className="flex items-center gap-2">
-                <Globe className="w-4 h-4" />
-                Explore Traditions
-              </Button>
-            </div>
-            
-            <div>
-              <img 
-                src="/lovable-uploads/454979dd-b894-4d87-a200-25d87a03ecd4.png" 
-                alt="Cultural Traditions"
-                className="w-full h-96 object-cover rounded-2xl shadow-lg"
-              />
-              
-              <div className="mt-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6">
-                <h4 className="font-bold text-gray-900 mb-4">Festival Quick Facts</h4>
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-primary">25+</div>
-                    <div className="text-sm text-gray-600">Annual Festivals</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary">12</div>
-                    <div className="text-sm text-gray-600">Major Monasteries</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary">1000+</div>
-                    <div className="text-sm text-gray-600">Years of Tradition</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary">50K+</div>
-                    <div className="text-sm text-gray-600">Annual Visitors</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Spiritual Journeys Shared */}
       <section className="py-16 bg-gray-50">
