@@ -8,7 +8,7 @@ import VirtualTours from "./pages/VirtualTours";
 import DigitalArchives from "./pages/DigitalArchives";
 import SacredCelebrations from "./pages/SacredCelebrations";
 import MonasteryTour from "./pages/MonasteryTour";
-import InteractiveMapPage from "./pages/interactiveMap";
+import InteractiveMapPage from "./pages/InteractiveMap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
