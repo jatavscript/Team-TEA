@@ -1,4 +1,6 @@
 import { useState } from "react";
+// To use the AI itinerary, set your OpenAI API key in a .env file at the project root as OPENAI_API_KEY=your-key-here
+
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -73,7 +75,7 @@ const JourneyPlanner = () => {
     );
   };
 
-  // ✅ AI Itinerary Generator using OpenAI (with fallback)
+  // ✅ AI Itinerary Generator using Gemini API (with fallback)
   const generateItinerary = async () => {
     setLoading(true);
     setShowPopup(true);
@@ -88,24 +90,24 @@ Return the plan in a clear day-wise format with suggestions for activities, stay
     `;
 
     try {
-      const response = await fetch("https://api.openai.com/v1/responses", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
-        },
-        body: JSON.stringify({
-          model: "gpt-5-nano",
-          input: userPrompt,
-          max_output_tokens: 500
-        })
-      });
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: userPrompt }] }]
+          })
+        }
+      );
 
       const data = await response.json();
-      console.log("API response:", data);
+      console.log("Gemini API response:", data);
 
-      // Handle OpenAI Responses API structure
-      const text = data.output?.[0]?.content?.[0]?.text;
+      // Handle Gemini API structure
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
       setAiResponse(
         text && text.trim().length > 0

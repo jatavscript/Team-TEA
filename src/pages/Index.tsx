@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import ImmersiveExperience from "@/components/ImmersiveExperience";
 import VirtualTours from "@/components/VirtualTours";
 import InteractiveMap from "@/components/InteractiveMap";
-import SacredCalendar from "@/components/SacredCalendar";
+
 import CommunityConservation from "@/components/CommunityConservation";
 import SurveyForm from "@/components/SurveyForm";
 import ItineraryPlanner from "@/components/ItineraryPlanner";
@@ -18,7 +18,7 @@ const Index = () => {
       <ImmersiveExperience />
       <VirtualTours />
       <InteractiveMap />
-      <SacredCalendar />
+
       <ItineraryPlanner />
       <CommunityConservation />
       <SurveyForm />
