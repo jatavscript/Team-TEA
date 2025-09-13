@@ -40,28 +40,98 @@ const FestivalFilters = () => {
 
   return (
     <div className={`${styles.SacredCelebrations} ${themeClass}`}>
-    <section className="py-20 bg-gradient-to-br from-muted/30 via-background to-muted/20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-20 w-20 h-20 bg-festival-gold rounded-full blur-2xl"></div>
-        <div className="absolute bottom-10 right-20 w-32 h-32 bg-festival-purple rounded-full blur-3xl"></div>
+    <section className="py-24 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 relative overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 opacity-20">
+        {/* Floating Lotus */}
+        <div className="absolute top-20 left-10 animate-float-slow">
+          <svg width="80" height="80" viewBox="0 0 80 80" className="text-purple-400">
+            <circle cx="40" cy="40" r="35" fill="currentColor" opacity="0.3"/>
+            <circle cx="40" cy="40" r="25" fill="currentColor" opacity="0.5"/>
+            <circle cx="40" cy="40" r="15" fill="currentColor" opacity="0.7"/>
+            <circle cx="40" cy="40" r="8" fill="currentColor" opacity="0.9"/>
+          </svg>
+        </div>
+
+        {/* Floating Prayer Flags */}
+        <div className="absolute top-32 right-16 animate-float-reverse">
+          <svg width="100" height="50" viewBox="0 0 100 50" className="text-indigo-400">
+            <rect x="0" y="10" width="18" height="12" fill="currentColor" opacity="0.8"/>
+            <rect x="20" y="10" width="18" height="12" fill="currentColor" opacity="0.6"/>
+            <rect x="40" y="10" width="18" height="12" fill="currentColor" opacity="0.7"/>
+            <rect x="60" y="10" width="18" height="12" fill="currentColor" opacity="0.5"/>
+            <rect x="80" y="10" width="18" height="12" fill="currentColor" opacity="0.9"/>
+            <line x1="0" y1="5" x2="100" y2="5" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+
+        {/* Floating Mandala */}
+        <div className="absolute bottom-32 left-20 animate-pulse-glow">
+          <svg width="90" height="90" viewBox="0 0 90 90" className="text-blue-400">
+            <circle cx="45" cy="45" r="40" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.4"/>
+            <circle cx="45" cy="45" r="30" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.6"/>
+            <circle cx="45" cy="45" r="20" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.8"/>
+            <circle cx="45" cy="45" r="10" fill="currentColor" opacity="0.6"/>
+            <path d="M45 10 L50 30 L45 45 L40 30 Z" fill="currentColor" opacity="0.5"/>
+            <path d="M80 45 L60 50 L45 45 L60 40 Z" fill="currentColor" opacity="0.5"/>
+            <path d="M45 80 L40 60 L45 45 L50 60 Z" fill="currentColor" opacity="0.5"/>
+            <path d="M10 45 L30 40 L45 45 L30 50 Z" fill="currentColor" opacity="0.5"/>
+          </svg>
+        </div>
+
+        {/* Floating Stupa */}
+        <div className="absolute top-40 right-32 animate-float-slow">
+          <svg width="60" height="70" viewBox="0 0 60 70" className="text-purple-500">
+            <rect x="25" y="55" width="10" height="15" fill="currentColor"/>
+            <circle cx="30" cy="50" r="10" fill="currentColor" opacity="0.8"/>
+            <rect x="20" y="45" width="20" height="8" fill="currentColor" opacity="0.9"/>
+            <polygon points="30,10 40,35 20,35" fill="currentColor" opacity="0.7"/>
+          </svg>
+        </div>
+
+        {/* Floating Dharma Wheel */}
+        <div className="absolute bottom-40 right-10 animate-float-reverse">
+          <svg width="70" height="70" viewBox="0 0 70 70" className="text-indigo-500">
+            <circle cx="35" cy="35" r="30" fill="none" stroke="currentColor" strokeWidth="2"/>
+            <circle cx="35" cy="35" r="6" fill="currentColor"/>
+            <line x1="35" y1="5" x2="35" y2="65" stroke="currentColor" strokeWidth="2"/>
+            <line x1="5" y1="35" x2="65" y2="35" stroke="currentColor" strokeWidth="2"/>
+            <line x1="10" y1="10" x2="60" y2="60" stroke="currentColor" strokeWidth="1.5"/>
+            <line x1="60" y1="10" x2="10" y2="60" stroke="currentColor" strokeWidth="1.5"/>
+          </svg>
+        </div>
+
+        {/* Floating Mountain Silhouette */}
+        <div className="absolute bottom-20 right-24 animate-float-delayed">
+          <svg width="120" height="60" viewBox="0 0 120 60" className="text-blue-300">
+            <path d="M0 60 L15 25 L25 35 L35 15 L45 25 L55 10 L65 20 L75 15 L85 25 L95 20 L105 25 L120 60 Z" fill="currentColor"/>
+          </svg>
+        </div>
+
+        {/* Floating Orbs */}
+        <div className="absolute top-1/3 left-1/4 animate-bounce">
+          <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full blur-sm"></div>
+        </div>
+        <div className="absolute top-2/3 right-1/3 animate-pulse">
+          <div className="w-12 h-12 bg-gradient-to-r from-indigo-400 to-blue-400 rounded-full blur-sm"></div>
+        </div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Enhanced Section Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-block mb-4">
-            <span className="px-4 py-2 bg-gradient-to-r from-festival-gold/20 to-yellow-400/20 text-festival-gold font-medium rounded-full text-sm border border-festival-gold/30 flex items-center space-x-2">
+            <span className="px-6 py-3 bg-purple-600 text-white font-medium rounded-full text-sm shadow-lg hover:bg-purple-700 transition-colors flex items-center space-x-2">
               <Search className="w-4 h-4" />
               <span>Find Your Perfect Festival</span>
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-festival-purple to-primary bg-clip-text text-transparent mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent mb-6 leading-tight">
             Discover Sacred Celebrations
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Filter festivals by type, month, or location to plan your 
-            <span className="text-festival-gold font-semibold"> spiritual journey</span> through the Himalayas
+            <span className="text-purple-600 font-semibold"> spiritual journey</span> through the Himalayas
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-festival-gold to-yellow-400 mx-auto mt-6 rounded-full"></div>
         </div>
@@ -77,8 +147,8 @@ const FestivalFilters = () => {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`${
                   activeFilter === filter.id 
-                    ? `${filter.color} text-white hover:opacity-90 shadow-xl scale-105` 
-                    : "hover:border-festival-gold/50 hover:bg-festival-gold/5"
+                    ? "bg-purple-600 text-white hover:bg-purple-700 shadow-xl scale-105 border-purple-600" 
+                    : "bg-white text-gray-700 border-gray-300 hover:border-purple-400 hover:bg-purple-50 hover:text-purple-700"
                 } transition-all duration-300 px-6 py-3 rounded-xl font-medium transform hover:scale-105 hover:shadow-lg`}
                 style={{animationDelay: `${index * 0.1}s`}}
               >
@@ -93,15 +163,15 @@ const FestivalFilters = () => {
         <div className="max-w-2xl mx-auto mb-12 animate-fade-in-up-delayed-2">
           <div className="relative group">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-muted-foreground group-hover:text-festival-gold transition-colors duration-300" />
+              <Search className="h-5 w-5 text-gray-500 group-hover:text-purple-600 transition-colors duration-300" />
             </div>
             <Input
               type="text"
               placeholder="Search festivals by name, location, or description..."
-              className="pl-12 pr-4 py-4 text-lg border-2 border-muted-foreground/20 rounded-xl bg-background/80 backdrop-blur-sm hover:border-festival-gold/50 focus:border-festival-gold focus:ring-2 focus:ring-festival-gold/20 transition-all duration-300 font-medium placeholder:text-muted-foreground/60"
+              className="pl-12 pr-4 py-4 text-lg border-2 border-gray-300 rounded-xl bg-white hover:border-purple-400 focus:border-purple-600 focus:ring-2 focus:ring-purple-200 transition-all duration-300 font-medium placeholder:text-gray-500 shadow-lg"
             />
             <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
-              <div className="text-xs text-muted-foreground/60 bg-muted/50 px-2 py-1 rounded-md">
+              <div className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-md">
                 Press Enter
               </div>
             </div>
