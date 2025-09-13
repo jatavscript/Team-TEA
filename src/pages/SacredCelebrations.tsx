@@ -19,7 +19,7 @@ const SacredCelebrations = () => {
       location: "Rumtek Monastery",
       duration: "3 Days",
       participants: "500+",
-      image: "/src/assets/ramtech-banner1.jpg",
+      image: "/assets/ramtech-banner1.jpg",
       description: "Tibetan New Year celebration with traditional dances, prayers, and cultural performances.",
       price: "₹2,500",
       featured: true
@@ -31,7 +31,7 @@ const SacredCelebrations = () => {
       location: "Pemayangtse Monastery",
       duration: "1 Day",
       participants: "300+",
-      image: "/src/assets/monastery-interior.jpg",
+      image: "/assets/monastery-interior.jpg",
       description: "Buddha's birth, enlightenment and parinirvana commemoration.",
       price: "₹1,800"
     },
@@ -42,7 +42,7 @@ const SacredCelebrations = () => {
       location: "Tashiding Monastery",
       duration: "2 Days",
       participants: "400+",
-      image: "/src/assets/tsug.jpg",
+      image: "/assets/tsug.jpg",
       description: "Sacred festival honoring the divine madman saint.",
       price: "₹2,200"
     }
@@ -121,7 +121,7 @@ const SacredCelebrations = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/src/assets/monastery-hero.jpg')` }}
+          style={{ backgroundImage: `url('/assets/monastery-hero.jpg')` }}
         />
         <div className="absolute inset-0 bg-purple-900/50"></div>
         <div className="absolute inset-0 bg-black/20"></div>
@@ -337,7 +337,7 @@ const SacredCelebrations = () => {
               <Card className="bg-white/95 backdrop-blur-sm border-none shadow-lg">
                 <div className="relative">
                   <img 
-                    src="/src/assets/Pemayangtse.jpg" 
+                    src="/assets/Pemayangtse.jpg" 
                     alt="Bumchu Festival"
                     className="w-full h-32 object-cover rounded-t-lg"
                   />
@@ -364,7 +364,7 @@ const SacredCelebrations = () => {
               <Card className="bg-white/95 backdrop-blur-sm border-none shadow-lg">
                 <div className="relative">
                   <img 
-                    src="/src/assets/monastery-interior.jpg" 
+                    src="/assets/monastery-interior.jpg" 
                     alt="Holi Festival"
                     className="w-full h-32 object-cover rounded-t-lg"
                   />
