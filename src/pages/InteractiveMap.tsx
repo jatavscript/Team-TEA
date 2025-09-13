@@ -383,47 +383,19 @@ const InteractiveMapPage = () => {
               <div className="relative bg-muted rounded-2xl overflow-hidden h-[700px] border">
                 
                 {/* Map Background */}
-                <div className={`absolute inset-0 transition-all duration-500 ${
-                  mapType === 'satellite' 
-                    ? 'bg-gradient-to-br from-green-800 via-green-600 to-blue-800' 
-                    : mapType === 'terrain'
-                    ? 'bg-gradient-to-br from-amber-200 via-green-200 to-blue-200'
-                    : 'bg-gradient-to-br from-green-100 via-green-200 to-blue-200'
-                }`}>
-                  
-                  {/* Topographical Features */}
-                  <div className="absolute top-10 left-20 w-32 h-20 bg-green-300/60 rounded-full" />
-                  <div className="absolute top-32 right-16 w-24 h-16 bg-green-400/50 rounded-full" />
-                  <div className="absolute bottom-20 left-32 w-40 h-24 bg-blue-300/40 rounded-full" />
-                  <div className="absolute bottom-32 right-24 w-28 h-18 bg-green-300/50 rounded-full" />
-                  
-                  {/* Mountain Ranges */}
-                  <div className="absolute top-0 right-0 w-48 h-32 bg-gradient-to-b from-gray-400/30 to-gray-500/40 rounded-tl-full" />
-                  <div className="absolute bottom-0 left-0 w-40 h-24 bg-gradient-to-t from-gray-400/30 to-gray-500/40 rounded-br-full" />
-                </div>
-
-                {/* Roads/Paths */}
-                <svg className="absolute inset-0 w-full h-full">
-                  <path 
-                    d="M 100 200 Q 200 150 300 180 T 500 200" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    fill="none" 
-                    opacity="0.6"
-                    className="text-amber-500"
-                  />
-                  <path 
-                    d="M 150 300 Q 250 250 350 280 T 550 300" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    fill="none" 
-                    opacity="0.6"
-                    className="text-amber-500"
-                  />
-                </svg>
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d915406.3756828315!2d87.88635537343749!3d27.533055899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a56a5805eafb%3A0xa4c4b857e98d2364!2sSikkim!5e0!3m2!1sen!2sin!4v1703598765432!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sikkim Interactive Map"
+              ></iframe>
 
                 {/* Map Markers */}
-                {filteredMarkers.map((marker) => {
+                {/* {filteredMarkers.map((marker) => {
                   const IconComponent = getMarkerIcon(marker.category);
                   const markerColor = getMarkerColor(marker.category);
                   
@@ -442,7 +414,7 @@ const InteractiveMapPage = () => {
                       </div>
                     </div>
                   );
-                })}
+                })} */}
 
                 {/* Selected Marker Info Card */}
                 {selectedMarker && (
