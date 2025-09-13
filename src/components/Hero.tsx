@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Play, MapPin, Camera, MessageCircle, RotateCcw } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Background Video */}
@@ -41,11 +44,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button
                 className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg flex items-center space-x-3 text-lg font-medium border-2 border-white"
-                onClick={() => {
-                  document
-                    .getElementById("virtual-tours")
-                    .scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => navigate("/virtual-tours")}
               >
                 <Camera className="h-6 w-6" />
                 <span>Start Virtual Tour</span>
@@ -79,7 +78,7 @@ const Hero = () => {
             {/* Feature Highlights */}
             <div className="flex flex-wrap gap-8">
               <div className="flex items-center space-x-3">
-                 <img src={logo} alt="Logo" className="w-10 h-10" />
+                <img src={logo} alt="Logo" className="w-10 h-10" />
                 <span className="text-white text-lg font-medium">
                   200+ Monasteries
                 </span>

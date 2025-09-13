@@ -10,9 +10,11 @@ import {
 } from "lucide-react";
 import monasteryInterior from "@/assets/monastery-interior.jpg";
 import virtualTour from "@/assets/virtual-tour.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const VirtualTours = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 bg-gray-50" id="virtual-tours">
       <div className="max-w-[1400px] sm:px-12 mx-auto px-6">
@@ -38,7 +40,7 @@ const VirtualTours = () => {
         {/* Tours Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Featured Tour - Rumtek Monastery */}
-          <div className="lg:col-span-2">
+          <div onClick={() => navigate("/monastery/rumtek-monastery")} className="lg:col-span-2">
             <div className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-video group">
               {/* Background Image */}
               <div
@@ -84,15 +86,11 @@ const VirtualTours = () => {
                     <Clock className="h-4 w-4" />
                     <span className="text-sm">45 min tour</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-white/80">
-                    <Globe className="h-4 w-4" />
-                    <span className="text-sm">5 languages</span>
-                  </div>
                 </div>
 
                 {/* CTA Button */}
                 <div className="flex justify-end">
-                  <Button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2">
+                  <Button onClick={() => navigate("/monastery/rumtek-monastery")} className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2">
                     <Play className="h-4 w-4" />
                     <span>Start Tour</span>
                   </Button>
@@ -104,7 +102,7 @@ const VirtualTours = () => {
           {/* Side Cards */}
           <div className="lg:col-span-1 space-y-6">
             {/* Pemayangtse Monastery Card */}
-            <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group cursor-pointer">
+            <div onClick={() => navigate("/monastery/pemayangtse-monastery")} className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group cursor-pointer">
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
@@ -131,7 +129,7 @@ const VirtualTours = () => {
             </div>
 
             {/* Enchey Monastery Card */}
-            <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group cursor-pointer">
+            <div onClick={() => navigate("/monastery/enchey-monastery")} className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group cursor-pointer">
               {/* Background Image with Prayer Flags */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"

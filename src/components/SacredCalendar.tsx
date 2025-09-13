@@ -132,7 +132,7 @@ const SacredCalendar = () => {
                     </Button>
                     <Button
                       variant="outline"
-                      className="border-white text-white hover:bg-white/10"
+                      className="border-white text-red-600 hover:bg-white/10"
                     >
                       Add to Calendar
                     </Button>
@@ -165,7 +165,7 @@ const SacredCalendar = () => {
                     Tibetan New Year celebration with traditional dances,
                     prayers, and community feasts
                   </p>
-                  <Button variant="link" className="p-0 h-auto text-primary">
+                  <Button variant="link" onClick={() => window.location.href = "https://en.wikipedia.org/wiki/Losar"} className="p-0 h-auto text-primary">
                     Learn More <ArrowRight className="h-3 w-3 ml-1" />
                   </Button>
                 </div>
@@ -175,7 +175,7 @@ const SacredCalendar = () => {
               <Card className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow">
                 <div className="relative h-48">
                   <img
-                    src="/lovable-uploads/3949632f-b024-4fb8-8f52-2f819d0741e5.png"
+                    src="/chaam.jpg"
                     alt="Saga Dawa celebration"
                     className="w-full h-full object-cover"
                   />
@@ -191,7 +191,7 @@ const SacredCalendar = () => {
                     Sacred month commemorating Buddha's birth, enlightenment,
                     and parinirvana
                   </p>
-                  <Button variant="link" className="p-0 h-auto text-primary">
+                  <Button variant="link" onClick={() => window.location.href = "https://sikkimtourism.gov.in/Public/ExperienceSikkim/FairsAndFestivalDetails/FF20A077?type=Festival"} className="p-0 h-auto text-primary">
                     Learn More <ArrowRight className="h-3 w-3 ml-1" />
                   </Button>
                 </div>
@@ -201,7 +201,7 @@ const SacredCalendar = () => {
               <Card className="overflow-hidden cursor-pointer hover:shadow-lg transition-shadow">
                 <div className="relative h-48">
                   <img
-                    src="/lovable-uploads/3949632f-b024-4fb8-8f52-2f819d0741e5.png"
+                    src="/losar.jpg"
                     alt="Monks performing daily prayers"
                     className="w-full h-full object-cover"
                   />
@@ -219,7 +219,7 @@ const SacredCalendar = () => {
                     Morning and evening prayer sessions open to visitors at
                     major monasteries
                   </p>
-                  <Button variant="link" className="p-0 h-auto text-primary">
+                  <Button variant="link"  onClick={() => window.location.href = "https://en.wikipedia.org/wiki/Losar"} className="p-0 h-auto text-primary">
                     View Schedule <ArrowRight className="h-3 w-3 ml-1" />
                   </Button>
                 </div>

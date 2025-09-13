@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Google Translate Styles */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Hide Google Translate banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body.translated-ltr {
+  top: 0 !important;
+}
+
+body.translated-rtl {
+  top: 0 !important;
+}
+
 /* Monastery360 Design System - Buddhist monastery and Himalayan inspired */
 
 @layer base {

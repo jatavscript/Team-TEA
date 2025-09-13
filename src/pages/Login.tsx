@@ -16,6 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSignIn = async () => {
@@ -79,9 +80,18 @@ const Login = () => {
     <div className="min-h-screen bg-gray-950 text-white flex items-center justify-center px-4">
       <Card className="w-full max-w-md bg-gray-900 border-gray-800">
         <CardHeader>
-          <CardTitle className="text-2xl">Login / Sign Up</CardTitle>
+          <CardTitle className="text-2xl text-white">Login / Sign Up</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <label className="text-sm text-gray-300">Name</label>
+            <Input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="your name"
+            />
+          </div>
           <div className="space-y-2">
             <label className="text-sm text-gray-300">Email</label>
             <Input

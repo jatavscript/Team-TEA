@@ -21,7 +21,7 @@ const Index = () => {
       <SacredCalendar />
       <ItineraryPlanner />
       <CommunityConservation />
-      <Features />
+      {/* <Features /> */}
       <TourismIntegration />
       <Footer />
     </div>

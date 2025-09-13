@@ -81,7 +81,7 @@ const TourismIntegration = () => {
   ];
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-muted/30" id="tourism">
       <div className="max-w-[1400px] sm:px-12 mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -219,19 +219,37 @@ const TourismIntegration = () => {
             </div>
 
             <div className="space-y-4">
-              <Button variant="monastery" size="lg" className="w-full">
+              <Button
+                onClick={() => (window.location.href = "tel:+91 9876543210")}
+                variant="monastery"
+                size="lg"
+                className="w-full"
+              >
                 <PhoneCall className="mr-2 h-5 w-5" />
                 Contact Tour Operators
               </Button>
-              <Button variant="sacred" size="lg" className="w-full">
+
+              <Button
+                onClick={() => (window.location.href = "tel:+91 9876543210")}
+                variant="sacred"
+                size="lg"
+                className="w-full"
+              >
                 <Car className="mr-2 h-5 w-5" />
                 Book Transportation
               </Button>
-              <Button variant="himalayan" size="lg" className="w-full">
+
+              <Button
+                onClick={() => (window.location.href = "tel:+91 9876543210")}
+                variant="himalayan"
+                size="lg"
+                className="w-full"
+              >
                 <Hotel className="mr-2 h-5 w-5" />
                 Find Accommodation
               </Button>
             </div>
+
           </div>
         </div>
       </div>

@@ -12,10 +12,10 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { label: "Virtual Tours", href: "#tours" },
-    { label: "Interactive Map", href: "#map" },
-    { label: "Digital Archives", href: "#archives" },
-    { label: "Cultural Events", href: "#events" },
+    { label: "Virtual Tours", href: "/virtual-tours" },
+    { label: "Interactive Map", href: "#interactive-map" },
+    { label: "Digital Archives", href: "/digital-archives" },
+    { label: "Cultural Events", href: "/sacred-celebrations" },
     { label: "Tourism Partners", href: "#tourism" },
   ];
 

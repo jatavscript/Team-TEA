@@ -20,6 +20,8 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        {/* Hidden Google Translate Element */}
+        <div id="google_translate_element" style={{ display: "none" }}></div>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

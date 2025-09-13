@@ -263,7 +263,7 @@ const VirtualTours = () => {
               <Play className="h-5 w-5 mr-2" />
               Start Virtual Tour
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-4">
+            <Button size="lg" variant="outline" className="border-white text-black hover:text-white hover:bg-white/10 px-8 py-4">
               <MapPin className="h-5 w-5 mr-2" />
               Explore Map
             </Button>

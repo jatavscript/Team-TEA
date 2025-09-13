@@ -98,8 +98,8 @@ const CommunityConservation = () => {
                   key={index}
                   className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all ${
                     selectedArtisan === index
-                      ? "bg-white/80 dark:bg-gray-800/80 shadow-md"
-                      : "bg-white/40 dark:bg-gray-800/40 hover:bg-white/60 dark:hover:bg-gray-800/60"
+                      ? "bg-white/80 dark:bg-gray-800/80 hover:shadow-md"
+                      : "bg-white/80 dark:bg-gray-800/80 hover:shadow-md"
                   }`}
                   onClick={() => setSelectedArtisan(index)}
                 >

@@ -2,22 +2,62 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Bus, Bed, User, Sparkles } from "lucide-react";
+
+// ✅ Helper: Predefined fallback plans
+const getFallbackPlan = (duration: string) => {
+  switch (duration) {
+    case "1-2":
+      return `📅 2-Day Sample Itinerary:
+Day 1:
+- Morning: Visit a monastery for meditation
+- Afternoon: Explore nearby cultural sites
+- Evening: Dinner at a traditional restaurant
+
+Day 2:
+- Morning: Trek to a scenic viewpoint
+- Afternoon: Photography session of landscapes
+- Evening: Relax at a local homestay`;
+
+    case "3-5":
+      return `📅 5-Day Sample Itinerary:
+Day 1-2: Monastery visits & meditation
+Day 3: Short trek & cultural learning
+Day 4: Photography tour & evening folk dance
+Day 5: Shopping & leisure day`;
+
+    case "1-week":
+      return `📅 7-Day Sample Itinerary:
+- Days 1-2: Monastery exploration & meditation
+- Day 3: Trekking adventure
+- Day 4: Cultural immersion with locals
+- Day 5: Photography & relaxation
+- Day 6: Local guided tour
+- Day 7: Departure & shopping`;
+
+    case "2-weeks":
+      return `📅 14-Day Sample Itinerary:
+Week 1: Monastery visits, meditation & short treks
+Week 2: Local homestays, cultural learning, long treks & photography`;
+
+    default:
+      return `📅 Default Plan (2 Days):
+Day 1: Visit monastery & local sightseeing
+Day 2: Trekking + cultural activities`;
+  }
+};
 
 const JourneyPlanner = () => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>(["Meditation"]);
   const [selectedBudget, setSelectedBudget] = useState("Mid-Range");
   const [duration, setDuration] = useState("");
   const [groupSize, setGroupSize] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [aiResponse, setAiResponse] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const interests = [
-    "Meditation",
-    "Architecture", 
-    "Photography",
-    "Trekking",
-    "Culture Learning"
-  ];
+  const interests = ["Meditation", "Architecture", "Photography", "Trekking", "Culture Learning"];
 
   const budgetOptions = [
     { id: "Budget", label: "Budget", range: "₹2,000-5000" },
@@ -26,15 +66,62 @@ const JourneyPlanner = () => {
   ];
 
   const toggleInterest = (interest: string) => {
-    setSelectedInterests(prev => 
-      prev.includes(interest) 
+    setSelectedInterests(prev =>
+      prev.includes(interest)
         ? prev.filter(i => i !== interest)
         : [...prev, interest]
     );
   };
 
+  // ✅ AI Itinerary Generator using OpenAI (with fallback)
+  const generateItinerary = async () => {
+    setLoading(true);
+    setShowPopup(true);
+
+    const userPrompt = `
+Generate a personalized travel itinerary with these details:
+- Duration: ${duration || "2 days"}
+- Group Size: ${groupSize || "2 people"}
+- Interests: ${selectedInterests.join(", ")}
+- Budget: ${selectedBudget}
+Return the plan in a clear day-wise format with suggestions for activities, stay, and transport.
+    `;
+
+    try {
+      const response = await fetch("https://api.openai.com/v1/responses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "gpt-5-nano",
+          input: userPrompt,
+          max_output_tokens: 500
+        })
+      });
+
+      const data = await response.json();
+      console.log("API response:", data);
+
+      // Handle OpenAI Responses API structure
+      const text = data.output?.[0]?.content?.[0]?.text;
+
+      setAiResponse(
+        text && text.trim().length > 0
+          ? text
+          : `⚠️ AI could not generate a plan. Here's a fallback:\n\n${getFallbackPlan(duration)}`
+      );
+    } catch (error) {
+      console.error(error);
+      setAiResponse(`⚠️ Something went wrong. Here's a fallback plan:\n\n${getFallbackPlan(duration)}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/20">
+    <section className="py-20 bg-gradient-to-b from-background to-muted/20" id="plan">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -59,9 +146,7 @@ const JourneyPlanner = () => {
               {/* Duration and Group Size */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Duration
-                  </label>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Duration</label>
                   <Select value={duration} onValueChange={setDuration}>
                     <SelectTrigger className="bg-background border-border">
                       <SelectValue placeholder="1-2 Days" />
@@ -75,9 +160,7 @@ const JourneyPlanner = () => {
                   </Select>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Group Size
-                  </label>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Group Size</label>
                   <Select value={groupSize} onValueChange={setGroupSize}>
                     <SelectTrigger className="bg-background border-border">
                       <SelectValue placeholder="Solo Traveler" />
@@ -94,9 +177,7 @@ const JourneyPlanner = () => {
 
               {/* Interests */}
               <div>
-                <label className="text-sm font-medium text-foreground mb-3 block">
-                  Interests
-                </label>
+                <label className="text-sm font-medium text-foreground mb-3 block">Interests</label>
                 <div className="flex flex-wrap gap-2">
                   {interests.map((interest) => (
                     <Button
@@ -114,9 +195,7 @@ const JourneyPlanner = () => {
 
               {/* Budget Range */}
               <div>
-                <label className="text-sm font-medium text-foreground mb-3 block">
-                  Budget Range
-                </label>
+                <label className="text-sm font-medium text-foreground mb-3 block">Budget Range</label>
                 <div className="grid grid-cols-3 gap-2">
                   {budgetOptions.map((budget) => (
                     <Button
@@ -133,18 +212,14 @@ const JourneyPlanner = () => {
               </div>
 
               {/* Generate Button */}
-              <Button 
-                variant="monastery" 
-                size="lg" 
-                className="w-full"
-              >
+              <Button variant="monastery" size="lg" className="w-full" onClick={generateItinerary}>
                 <Sparkles className="w-4 h-4 mr-2" />
-                Generate Personalized Itinerary
+                {loading ? "Generating..." : "Generate Personalized Itinerary"}
               </Button>
             </CardContent>
           </Card>
 
-          {/* Right Side - Service Cards */}
+          {/* Right Side - Service Cards (unchanged) */}
           <div className="space-y-6">
             {/* Transport Services */}
             <Card className="shadow-monastery border-monastery-gold/20">
@@ -230,6 +305,18 @@ const JourneyPlanner = () => {
           </div>
         </div>
       </div>
+
+      {/* AI Response Popup */}
+      <Dialog open={showPopup} onOpenChange={setShowPopup}>
+        <DialogContent className="sm:max-w-lg bg-background border-monastery-gold/30 shadow-xl">
+          <DialogHeader>
+            <DialogTitle className="text-lg font-bold text-monastery-burgundy">Your AI Itinerary</DialogTitle>
+          </DialogHeader>
+          <div className="whitespace-pre-wrap text-sm text-foreground">
+            {loading ? "✨ Crafting your personalized itinerary..." : aiResponse}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

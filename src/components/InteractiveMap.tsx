@@ -12,8 +12,10 @@ import {
   Navigation,
 } from "lucide-react";
 import monasteryInterior from "@/assets/monastery-interior.jpg";
+import { useNavigate } from "react-router-dom";
 
 const InteractiveMap = () => {
+  const navigate = useNavigate();
   const [selectedRegions, setSelectedRegions] = useState<string[]>(["east"]);
   const [selectedTraditions, setSelectedTraditions] = useState<string[]>([
     "nyingma",
@@ -176,65 +178,20 @@ const InteractiveMap = () => {
           {/* Map Area */}
           <div className="lg:col-span-3">
             <div className="relative bg-gray-100 rounded-2xl overflow-hidden h-[600px]">
-              {/* Map Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-green-200 to-blue-200">
-                {/* Topographical elements */}
-                <div className="absolute top-10 left-20 w-32 h-20 bg-green-300 rounded-full opacity-60"></div>
-                <div className="absolute top-32 right-16 w-24 h-16 bg-green-400 rounded-full opacity-50"></div>
-                <div className="absolute bottom-20 left-32 w-40 h-24 bg-blue-300 rounded-full opacity-40"></div>
-                <div className="absolute bottom-32 right-24 w-28 h-18 bg-green-300 rounded-full opacity-50"></div>
-
-                {/* Mountain silhouettes */}
-                <div className="absolute top-0 right-0 w-48 h-32 bg-gradient-to-b from-gray-300 to-gray-400 rounded-tl-full"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-24 bg-gradient-to-t from-gray-300 to-gray-400 rounded-br-full"></div>
-              </div>
-
-              {/* Roads */}
-              <div className="absolute inset-0">
-                <svg className="w-full h-full">
-                  <path
-                    d="M 100 200 Q 200 150 300 180 T 500 200"
-                    stroke="#fbbf24"
-                    strokeWidth="3"
-                    fill="none"
-                    opacity="0.8"
-                  />
-                  <path
-                    d="M 150 300 Q 250 250 350 280 T 550 300"
-                    stroke="#fbbf24"
-                    strokeWidth="3"
-                    fill="none"
-                    opacity="0.8"
-                  />
-                  <path
-                    d="M 200 400 Q 300 350 400 380 T 600 400"
-                    stroke="#fbbf24"
-                    strokeWidth="3"
-                    fill="none"
-                    opacity="0.8"
-                  />
-                </svg>
-              </div>
-
-              {/* Monastery Markers */}
-              <div className="absolute top-20 left-32">
-                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-lg"></div>
-              </div>
-              <div className="absolute top-40 right-24">
-                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-lg"></div>
-              </div>
-              <div className="absolute bottom-32 left-40">
-                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-lg"></div>
-              </div>
-              <div className="absolute bottom-20 right-32">
-                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-lg"></div>
-              </div>
-              <div className="absolute top-60 left-60">
-                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-lg"></div>
-              </div>
+              {/* Google Maps Embed */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d915406.3756828315!2d87.88635537343749!3d27.533055899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a56a5805eafb%3A0xa4c4b857e98d2364!2sSikkim!5e0!3m2!1sen!2sin!4v1703598765432!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sikkim Interactive Map"
+              ></iframe>
 
               {/* Rumtek Monastery Callout */}
-              <div className="absolute top-16 left-16 bg-white rounded-xl p-4 shadow-lg max-w-xs">
+              <div className="absolute top-28 left-3 bg-white rounded-sm p-4 shadow-lg max-w-xs">
                 <div className="flex items-start space-x-3">
                   <img
                     src={monasteryInterior}
@@ -252,6 +209,7 @@ const InteractiveMap = () => {
                       <Button
                         size="sm"
                         className="bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-3 py-1"
+                        onClick={() => navigate("/monastery/rumtek-monastery")}
                       >
                         360° Tour
                       </Button>
@@ -265,19 +223,6 @@ const InteractiveMap = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Map Controls */}
-              <div className="absolute top-4 right-4 flex flex-col space-y-2">
-                <button className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-                  <Plus className="h-5 w-5 text-gray-700" />
-                </button>
-                <button className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-                  <Minus className="h-5 w-5 text-gray-700" />
-                </button>
-                <button className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-                  <Compass className="h-5 w-5 text-gray-700" />
-                </button>
               </div>
 
               {/* Transport Options Widget */}
