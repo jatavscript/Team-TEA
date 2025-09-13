@@ -21,9 +21,6 @@ import {
   Globe
 } from 'lucide-react';
 import NavigationComponent from "@/components/Navigation";
-import monasteryHero from "@/assets/monastery-hero.jpg";
-import monasteryInterior from "@/assets/monastery-interior.jpg";
-import ancientManuscripts from "@/assets/ancient-manuscripts.jpg";
 
 const InteractiveMapPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -61,7 +58,7 @@ const InteractiveMapPage = () => {
       district: 'east',
       difficulty: 'easy',
       position: { x: 65, y: 35 },
-      image: monasteryInterior,
+      image: '/assets/monastery-interior.jpg',
       description: 'The largest monastery in Sikkim, seat of the Karmapa',
       details: 'Built in 1960s | Kagyu Tradition | 24 km from Gangtok'
     },
@@ -72,7 +69,7 @@ const InteractiveMapPage = () => {
       district: 'east',
       difficulty: 'easy',
       position: { x: 55, y: 30 },
-      image: ancientManuscripts,
+      image: '/assets/ancient-manuscripts.jpg,',
       description: 'Ancient monastery with rich Nyingma traditions',
       details: '200+ years old | Nyingma Tradition | Gangtok'
     },
@@ -83,7 +80,7 @@ const InteractiveMapPage = () => {
       district: 'west',
       difficulty: 'easy',
       position: { x: 40, y: 45 },
-      image: monasteryHero,
+      image: '/assets/monastery-hero.jpg',
       description: 'Tibetan New Year celebration',
       details: 'February/March | Traditional Dances | Community Celebration'
     },
@@ -94,7 +91,7 @@ const InteractiveMapPage = () => {
       district: 'west',
       difficulty: 'moderate',
       position: { x: 35, y: 55 },
-      image: monasteryInterior,
+      image: '/assets/monastery-interior.jpg',
       description: 'Sacred monastery on hilltop',
       details: 'Founded in 1641 | Nyingma Tradition | Holy Water Source'
     },
@@ -105,7 +102,7 @@ const InteractiveMapPage = () => {
       district: 'west',
       difficulty: 'easy',
       position: { x: 25, y: 60 },
-      image: ancientManuscripts,
+      image: '/assets/ancient-manuscripts.jpg,',
       description: 'One of the oldest monasteries in Sikkim',
       details: 'Founded in 1705 | Nyingma Tradition | Pelling'
     }
@@ -155,7 +152,7 @@ const InteractiveMapPage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${monasteryHero})` }}
+          style={{ backgroundImage: `url(${'/assets/monastery-hero.jpg'})` }}
         />
         <div className="absolute inset-0 bg-black/40" />
         

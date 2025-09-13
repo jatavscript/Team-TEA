@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, MapPin, Camera, MessageCircle, RotateCcw } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import logo from "@/assets/logo.png";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const Hero = () => {
           loop
           playsInline
         >
-          <source src="/src/assets/veo3.mp4" type="video/mp4" />
+          <source src="/veo3.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/40"></div>
@@ -76,7 +75,7 @@ const Hero = () => {
             {/* Feature Highlights */}
             <div className="flex flex-wrap gap-8">
               <div className="flex items-center space-x-3">
-                <img src={logo} alt="Logo" className="w-10 h-10" />
+                <img src={'assets/logo.png'} alt="/assets/logo.png" className="w-10 h-10" />
                 <span className="text-white text-lg font-medium">
                   200+ Monasteries
                 </span>

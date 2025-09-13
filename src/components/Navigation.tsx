@@ -11,7 +11,6 @@ import {
   LogOut,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,9 +140,9 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md">
       <div className="max-w-[1400px] sm:px-12 mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* 'assets/logo.png' */}
           <Link to={"/"}>
-            <img src={logo} alt="Logo" className="w-10 h-10" />
+            <img src={'/assets/logo.png'} alt="'/assets/logo.png'" className="w-10 h-10" />
           </Link>
 
           {/* Desktop Navigation */}

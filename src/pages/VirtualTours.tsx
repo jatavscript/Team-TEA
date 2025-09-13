@@ -5,16 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
-import monasteryInterior from "@/assets/ramtech-banner1.jpg";
-import monasteryHero from "@/assets/monastery-hero.jpg";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Play, 
-  Search, 
-  Filter, 
   MapPin, 
   Clock, 
-  Users, 
   Star, 
   Heart, 
   Share2,
@@ -25,7 +19,6 @@ import {
   BookOpen,
   Calendar,
   Globe,
-  ChevronRight,
   Send
 } from 'lucide-react';
 import Navigation from "@/components/Navigation";
@@ -79,7 +72,7 @@ const VirtualTours = () => {
       duration: "45 min",
       rating: 4.9,
       views: "125K",
-      image: "src/assets/rumtek.jpg",
+      image: "/assets/rumtek.jpg",
       category: "Active Monastery"
     },
     {
@@ -90,7 +83,7 @@ const VirtualTours = () => {
       duration: "30 min",
       rating: 4.8,
       views: "98K",
-      image: "src/assets/pemayangtse.jpg",
+      image: "/assets/pemayangtse.jpg",
       category: "Historic Site"
     },
     {
@@ -101,7 +94,7 @@ const VirtualTours = () => {
       duration: "25 min", 
       rating: 4.7,
       views: "87K",
-      image: "src/assets/enchey.jpg",
+      image: "/assets/enchey.jpg",
       category: "Active Monastery"
     },
     {
@@ -112,7 +105,7 @@ const VirtualTours = () => {
       duration: "35 min",
       rating: 4.9,
       views: "156K", 
-      image: "src/assets/tashiding.jpg",
+      image: "/assets/tashiding.jpg",
       category: "Sacred Site"
     },
     {
@@ -123,7 +116,7 @@ const VirtualTours = () => {
       duration: "20 min",
       rating: 4.6,
       views: "45K",
-      image: "src/assets/dubdi.jpg",
+      image: "/assets/dubdi.jpg",
       category: "Historic Site"
     },
     {
@@ -134,7 +127,7 @@ const VirtualTours = () => {
       duration: "20 min",
       rating: 4.7,
       views: "82K",
-      image: "src/assets/tsug.jpg",
+      image: "/assets/tsug.jpg",
       category: "Active Monastery"
     },
     {
@@ -145,7 +138,7 @@ const VirtualTours = () => {
       duration: "30 min",
       rating: 4.6,
       views: "56K",
-      image: "src/assets/ralang.jpg",
+      image: "/assets/ralang.jpg",
       category: "Active Monastery"
     },
     {
@@ -156,7 +149,7 @@ const VirtualTours = () => {
       duration: "40 min",
       rating: 4.8,
       views: "134K",
-      image: "src/assets/namygal.jpg",
+      image: "/assets/namygal.jpg",
       category: "Educational"
     }
   ];
@@ -272,7 +265,7 @@ const VirtualTours = () => {
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${monasteryHero})` }}
+          style={{ backgroundImage: `url(${'/assets/monastery-hero.jpg'})` }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -323,7 +316,7 @@ const VirtualTours = () => {
             >
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${monasteryInterior})` }}
+                style={{ backgroundImage: `url(${'/assets/ramtech-banner1.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/30"></div>
               </div>

@@ -14,7 +14,6 @@ import {
   Globe,
   Calendar
 } from "lucide-react";
-import ancientManuscripts from "@/assets/ancient-manuscripts.jpg";
 
 const DigitalArchives = () => {
   const archiveCategories = [
@@ -56,7 +55,7 @@ const DigitalArchives = () => {
       year: "17th Century",
       pages: "150 pages",
       status: "Digitized",
-      image: ancientManuscripts
+      image: '/assets/ancient-manuscripts.jpg'
     },
     {
       title: "Rumtek Monastery Murals",
@@ -65,7 +64,7 @@ const DigitalArchives = () => {
       year: "16th Century", 
       pages: "45 pieces",
       status: "AI Tagged",
-      image: ancientManuscripts
+      image: '/assets/ancient-manuscripts.jpg'
     },
     {
       title: "Tashiding Sacred Texts",
@@ -74,7 +73,7 @@ const DigitalArchives = () => {
       year: "15th Century",
       pages: "200 pages",
       status: "OCR Complete",
-      image: ancientManuscripts
+      image: '/assets/ancient-manuscripts.jpg'
     }
   ];
 

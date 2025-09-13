@@ -8,8 +8,6 @@ import {
   Volume2,
   ArrowRight,
 } from "lucide-react";
-import monasteryInterior from "@/assets/monastery-interior.jpg";
-import virtualTour from "@/assets/virtual-tour.jpg";
 import { Link, useNavigate } from "react-router-dom";
 
 const VirtualTours = () => {
@@ -45,7 +43,7 @@ const VirtualTours = () => {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${monasteryInterior})` }}
+                style={{ backgroundImage: `url(${'/assets/monastery-interior.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/30"></div>
               </div>
@@ -106,7 +104,7 @@ const VirtualTours = () => {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${virtualTour})` }}
+                style={{ backgroundImage: `url(${'/assets/virtual-tour.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
@@ -133,7 +131,7 @@ const VirtualTours = () => {
               {/* Background Image with Prayer Flags */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${virtualTour})` }}
+                style={{ backgroundImage: `url(${'/assets/virtual-tour.jpg'})` }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>

@@ -11,7 +11,6 @@ import {
   Bike,
   Navigation,
 } from "lucide-react";
-import monasteryInterior from "@/assets/monastery-interior.jpg";
 import { useNavigate } from "react-router-dom";
 
 const InteractiveMap = () => {
@@ -194,7 +193,7 @@ const InteractiveMap = () => {
               <div className="absolute top-28 left-3 bg-white rounded-sm p-4 shadow-lg max-w-xs">
                 <div className="flex items-start space-x-3">
                   <img
-                    src={monasteryInterior}
+                    src={'/assets/monastery-interior.jpg'}
                     alt="Rumtek Monastery"
                     className="w-12 h-12 rounded-lg object-cover"
                   />
